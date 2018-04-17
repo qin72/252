@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -8,20 +9,30 @@ import { environment } from '../environments/environment';
 import {AuthService} from './services/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomeComponent } from './home/home.component';
+import { CalendarComponent } from './calendar/calendar.component'
 import { AppRoutingModule } from './/app-routing.module';
+import { CalendarModule } from 'angular-calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CalendarUtilsModule } from './calendarUtils/module'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomeComponent
+    HomeComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
 		AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
+    CalendarUtilsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
