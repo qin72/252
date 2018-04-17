@@ -8,18 +8,20 @@ import {Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
+  user:any;
   constructor(public authS : AuthService, private router : Router) { }
 
   ngOnInit() {
   }
   login()
   {
-    this.authS.loginGoogle().then( () =>{ 
+    this.authS.loginGoogle().then( (res) =>{ 
     
-      this.router.navigateByUrl(''); 
-  
+      this.router.navigateByUrl('home'); 
+      console.log(res.user.email);
+      this.user=res.user.email;
     });
+    
   }
 
 }
