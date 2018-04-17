@@ -15,3 +15,14 @@ Features to Include:
     - Other
 
 
+Date object
+date variable
+array of events
+
+
+Event Object
+event name string
+category school, extra, social event, and other string
+date variable
+completed boolean
+event description
