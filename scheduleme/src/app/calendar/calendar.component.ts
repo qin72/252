@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
 import { CalendarEvent } from 'angular-calendar';
+import { MatButtonModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-calendar',
