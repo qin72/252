@@ -14,14 +14,16 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CalendarModule } from 'angular-calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CalendarUtilsModule } from './calendarUtils/module'
+import { CalendarUtilsModule } from './calendarUtils/module';
+import { DayPageComponent } from './day-page/day-page.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomeComponent,
-    CalendarComponent
+    CalendarComponent,
+    DayPageComponent
   ],
   imports: [
     BrowserModule,
