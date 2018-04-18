@@ -25,10 +25,16 @@ export class CalendarComponent implements OnInit {
   }
 
   logout()
-{
-  this.authS.logout();
-  this.router.navigateByUrl('');
+  {
+    this.authS.logout();
+    this.router.navigateByUrl('');
+  }
 
-}
+  clickDay(clickedDate)
+  {
+      if (clickedDate){
+        this.router.navigateByUrl('dayPage');
+      }
+  }
 
 }
