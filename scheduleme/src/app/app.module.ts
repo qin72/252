@@ -17,6 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarUtilsModule } from './calendarUtils/module';
 import { DayPageComponent } from './day-page/day-page.component'
 
+import { MatButtonModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,11 @@ import { DayPageComponent } from './day-page/day-page.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    CalendarUtilsModule
+    CalendarUtilsModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

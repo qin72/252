@@ -24,4 +24,11 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout()
+{
+  this.authS.logout();
+  this.router.navigateByUrl('');
+
+}
+
 }
