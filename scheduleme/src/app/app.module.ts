@@ -21,6 +21,10 @@ import { MatButtonModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { AllEventComponent } from './all-event/all-event.component';
+import { EventDisplayComponent } from './event-display/event-display.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { MatCardModule } from '@angular/material/card';
     LoginPageComponent,
     HomeComponent,
     CalendarComponent,
-    DayPageComponent
+    DayPageComponent,
+    AllEventComponent,
+    EventDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatTabsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    MatGridListModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

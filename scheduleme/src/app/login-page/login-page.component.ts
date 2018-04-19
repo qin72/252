@@ -15,13 +15,13 @@ export class LoginPageComponent implements OnInit {
   }
   login()
   {
-    this.authS.loginGoogle().then( (res) =>{ 
-    
-      this.router.navigateByUrl('home'); 
+    this.authS.loginGoogle().then( (res) =>{
+
+      this.router.navigateByUrl('home');
       console.log(res.user.email);
       this.user=res.user.email;
     });
-    
+
   }
 
 }

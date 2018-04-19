@@ -5,16 +5,28 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private user : firebase.User = null;
-  hasUser = false; 
-  constructor(private fbauth : AngularFireAuth) 
+  private hasUser = false;
+  constructor(private fbauth : AngularFireAuth)
   {
 
+  }
+  getuid()
+  {
+    if(this.hasUser) {
+      return this.user.uid;
+    } else {
+      return 0;
+    }
   }
   loginGoogle()
   {
     var gprovider=new firebase.auth.GoogleAuthProvider();
     this.hasUser=true;
-    return this.fbauth.auth.signInWithPopup(gprovider);
+    return this.fbauth.auth.signInWithPopup(gprovider).then( (res) => {
+      this.user = res.user;
+      return res;
+    });
+
   }
   logout()
   {

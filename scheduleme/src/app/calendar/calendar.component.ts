@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { AllEventComponent } from '../all-event/all-event.component';
 
 @Component({
   selector: 'app-calendar',
@@ -22,6 +23,7 @@ export class CalendarComponent implements OnInit {
   constructor(public authS : AuthService,  private router : Router) { }
 
   ngOnInit() {
+
   }
 
   logout()
