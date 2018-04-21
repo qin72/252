@@ -1,11 +1,15 @@
 Firebase access
-schedulemepurdue@gmail.com
+Username: schedulemepurdue@gmail.com
+Password: purduepurdue
 
-purduepurdue
+Need to run firebase init again before deploy.
 
 Features to Include:
 - Login credentials
-- Page with view of calendar
+- Tab with view of calendar
+- Tab with view of all events
+- Tab with view of today events
+- Tab with view of events by catagory
 - Each day will be selectable
 - If selected display events for the day
 - Organize events into categories
