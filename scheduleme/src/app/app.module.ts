@@ -24,7 +24,8 @@ import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AllEventComponent } from './all-event/all-event.component';
-import { EventDisplayComponent } from './event-display/event-display.component';
+import { SortPipePipe } from './sort-pipe.pipe';
+import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EventDisplayComponent } from './event-display/event-display.component';
     CalendarComponent,
     DayPageComponent,
     AllEventComponent,
-    EventDisplayComponent
+    SortPipePipe,
+    EventlistDisplayComponent
   ],
   imports: [
     BrowserModule,

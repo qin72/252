@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import {AuthService} from '../services/auth.service';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { Event } from '../objects/event';
+import { SortPipePipe } from '../sort-pipe.pipe';
+import { EventlistDisplayComponent } from '../eventlist-display/eventlist-display.component';
+
+
+
 
 @Component({
   selector: 'app-all-event',
@@ -15,11 +16,16 @@ import { Event } from '../objects/event';
 export class AllEventComponent implements OnInit {
   uid = null;
   events: any;
-  panelOpenState: boolean = false;
+  sortede$: any;
   constructor(db : AngularFireDatabase, authS : AuthService) {
     this.uid = authS.getuid();
-    console.log("UID: " + this.uid)
+    console.log("UID: " + this.uid);
     this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('Date')).valueChanges();
+    this.sortede$ = this.events.map(items=>items.sort((l:any, r:any) => {
+      if(l.date < r.date) { return -1; }
+      if(l.date > r.date) { return 1; }
+      return 0;
+    }));
   }
 
   ngOnInit() {

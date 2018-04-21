@@ -1,27 +1,5 @@
 <div id='all-events'>
   <p>
-    <mat-accordion class="expanel-align">
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false"
-                            *ngFor ="let e of events | async">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{e.name}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{e.catagory}}
-          </mat-panel-description>
-          <mat-panel-description>
-            {{getdate(e.date)}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-grid-list cols="4" rowHeight="100px">
-          <mat-grid-tile colspan="3" rowspan="1">
-            <div style="position: absolute;left: 0;top:5px">{{e.desc}}</div>
-
-          </mat-grid-tile>
-        </mat-grid-list>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <app-eventlist-display events='sortede$'></app-eventlist-display>
   </p>
 </div>
