@@ -26,6 +26,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AllEventComponent } from './all-event/all-event.component';
 import { SortPipePipe } from './sort-pipe.pipe';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
+import { CatagoryEventComponent } from './catagory-event/catagory-event.component';
+import {MatSelectModule} from '@angular/material/select';
+import { TodayEventComponent } from './today-event/today-event.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import { EventlistDisplayComponent } from './eventlist-display/eventlist-display
     DayPageComponent,
     AllEventComponent,
     SortPipePipe,
-    EventlistDisplayComponent
+    EventlistDisplayComponent,
+    CatagoryEventComponent,
+    TodayEventComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { EventlistDisplayComponent } from './eventlist-display/eventlist-display
     MatToolbarModule,
     MatCardModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

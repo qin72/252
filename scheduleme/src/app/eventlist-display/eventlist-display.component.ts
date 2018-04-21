@@ -11,9 +11,12 @@ import { Event } from '../objects/event';
 })
 export class EventlistDisplayComponent implements OnInit {
 
-  @Input() events: any;
+  @Input() events: Array<any>;
   ngOnInit() {
   }
 
+    getdate(e) {
+      return new Date(e);
+    }
 
 }
