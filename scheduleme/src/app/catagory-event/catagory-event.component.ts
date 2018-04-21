@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/switchMap';
 import {NgModule} from '@angular/core';
 import {AuthService} from '../services/auth.service';
-import { SortPipePipe } from '../sort-pipe.pipe';
 import { EventlistDisplayComponent } from '../eventlist-display/eventlist-display.component';
 import {MatSelectModule} from '@angular/material/select';
 import * as firebase from 'firebase';
@@ -29,7 +28,7 @@ export class CatagoryEventComponent implements OnInit {
   constructor(db : AngularFireDatabase, authS : AuthService) {
     this.uid = authS.getuid();
     console.log("UID: " + this.uid);
-    this.event = new BehaviorSubject(null);
+    this.event = new BehaviorSubject("null");
     this.eventlist = this.event.switchMap(cata =>
       db.list('Users/' + this.uid + '/events', ref =>
         cata ? ref.orderByChild('catagory').equalTo(cata) : ref

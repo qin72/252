@@ -12,22 +12,18 @@ import { CalendarEvent } from 'angular-calendar';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-
+  uid = null;
   view: string = 'month';
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
   clickedDate: Date;
 
-  constructor(public authS : AuthService,  private router : Router) { }
+  constructor(public authS : AuthService,  private router : Router) {
+    this.uid = authS.getuid();
+  }
 
   ngOnInit() {
 
-  }
-
-  logout()
-  {
-    this.authS.logout();
-    this.router.navigateByUrl('');
   }
 
   clickDay(clickedDate)

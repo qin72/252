@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private user : firebase.User = null;
-  private hasUser = false;
+  private hasUser: boolean = false;
   constructor(private fbauth : AngularFireAuth)
   {
 

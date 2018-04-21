@@ -9,7 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { AllEventComponent } from '../all-event/all-event.component';
 import { CatagoryEventComponent } from '../catagory-event/catagory-event.component';
 import { TodayEventComponent } from '../today-event/today-event.component';
-import { CalendarComponent } from '../calendar/calendar.component'
+import { CalendarComponent } from '../calendar/calendar.component';
+import { NgSwitch } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +19,10 @@ import { CalendarComponent } from '../calendar/calendar.component'
 })
 export class HomeComponent implements OnInit {
 
-
   constructor(public authS : AuthService,  private router : Router) { }
 
   ngOnInit() {
+    if(this.authS.getuid() == 0) {  this.router.navigateByUrl(''); }
   }
 
   logout()

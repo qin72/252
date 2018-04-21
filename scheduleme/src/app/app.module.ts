@@ -24,7 +24,6 @@ import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AllEventComponent } from './all-event/all-event.component';
-import { SortPipePipe } from './sort-pipe.pipe';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
 import { CatagoryEventComponent } from './catagory-event/catagory-event.component';
 import {MatSelectModule} from '@angular/material/select';
@@ -38,7 +37,6 @@ import { TodayEventComponent } from './today-event/today-event.component';
     CalendarComponent,
     DayPageComponent,
     AllEventComponent,
-    SortPipePipe,
     EventlistDisplayComponent,
     CatagoryEventComponent,
     TodayEventComponent

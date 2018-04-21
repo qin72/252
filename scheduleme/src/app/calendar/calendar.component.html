@@ -1,21 +1,28 @@
-<div class="tab-content">
-  <mwl-demo-utils-calendar-header
-    [(view)]="view"
-    [(viewDate)]="viewDate">
-  </mwl-demo-utils-calendar-header>
+<div id='calendar-events'>
+  <p [ngSwitch]="uid==0">
+    <ng-container *ngSwitchCase ="false">
+      <div class="tab-content">
+        <mwl-demo-utils-calendar-header
+          [(view)]="view"
+          [(viewDate)]="viewDate">
+        </mwl-demo-utils-calendar-header>
 
-  <div class="alert alert-info">
-    Click on a day on the view.
-    <strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'medium' }}</strong>
-    {{clickDay(clickedDate)}}
+        <div class="alert alert-info">
+          Click on a day on the view.
+          <strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate | date:'medium' }}</strong>
+          {{clickDay(clickedDate)}}
 
-  </div>
-  <div [ngSwitch]="view">
-    <mwl-calendar-month-view
-      *ngSwitchCase="'month'"
-      [viewDate]="viewDate"
-      [events]="events"
-      (dayClicked)="clickedDate = $event.day.date">
-    </mwl-calendar-month-view>
-  </div>
+        </div>
+        <div [ngSwitch]="view">
+          <mwl-calendar-month-view
+            *ngSwitchCase="'month'"
+            [viewDate]="viewDate"
+            [events]="events"
+            (dayClicked)="clickedDate = $event.day.date">
+          </mwl-calendar-month-view>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="true"><h2 style="color: lightgrey">You need to login first!</h2></ng-container>
+  </p>
 </div>

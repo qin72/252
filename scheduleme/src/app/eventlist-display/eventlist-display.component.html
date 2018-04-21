@@ -1,7 +1,7 @@
 <p [ngSwitch]="(events | async)?.length==0">
   <ng-container *ngSwitchCase ="false">
     <mat-accordion class="expanel-align">
-      <mat-expansion-panel *ngFor ="let e of events | async">
+      <mat-expansion-panel [expanded]="false" *ngFor ="let e of events | async">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{e.name}}

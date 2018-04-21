@@ -1,7 +1,16 @@
 <mat-toolbar color="primary">
   Scheduleme
   <span class="fill-line-space"></span>
-  <button mat-button style="position: relative; top: 0; right: 0" (click)="logout()">Logout</button>
+  <div  [ngSwitch]="authS.loggedIn()">
+    <ng-container *ngSwitchCase ="true">
+      <button mat-button style="position: relative; top: 0; right: 0" (click)="logout()">Logout</button>
+    </ng-container>
+    <ng-container *ngSwitchCase ="false">
+      <button mat-button style="position: relative; top: 0; right: 0" (click)="login()">Login</button>
+    </ng-container>
+
+
+  </div>
 </mat-toolbar>
 <mat-card>
   <mat-card-content>
@@ -11,11 +20,15 @@
           <app-all-event></app-all-event>
         </div>
       </mat-tab>
-      <mat-tab label="Calendar">
-        <app-calendar></app-calendar>
-      </mat-tab>
       <mat-tab label="Catagory">
-        <app-catagory-event></app-catagory-event>
+        <div class="tab-content">
+          <app-catagory-event></app-catagory-event>
+        </div>
+      </mat-tab>
+      <mat-tab label="Calendar">
+        <div class="tab-content">
+          <app-calendar></app-calendar>
+        </div>
       </mat-tab>
       <mat-tab label="Today">
         <div class="tab-content">
