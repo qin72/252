@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
 import { CalendarEvent } from 'angular-calendar';
@@ -10,6 +10,7 @@ import { AllEventComponent } from '../all-event/all-event.component';
 import { CatagoryEventComponent } from '../catagory-event/catagory-event.component';
 import { TodayEventComponent } from '../today-event/today-event.component';
 import { CalendarComponent } from '../calendar/calendar.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgSwitch } from '@angular/common';
 
 @Component({
@@ -19,10 +20,15 @@ import { NgSwitch } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authS : AuthService,  private router : Router) { }
+  selectedIndex: number = 0;
+  constructor(public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     if(this.authS.getuid() == 0) {  this.router.navigateByUrl(''); }
+  }
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
   }
 
   logout()
