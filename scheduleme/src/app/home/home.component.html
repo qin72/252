@@ -12,28 +12,29 @@
 
   </div>
 </mat-toolbar>
-  <mat-tab-group class="demo-tab-group" #tg>
-    <mat-tab label="All">
-      <div class="tab-content">
-        <app-all-event *ngIf="tg.selectedIndex == 0" >
-          <mat-progress-spinner [mode]="indeterminate">
-          </mat-progress-spinner>
-        </app-all-event>
-      </div>
-    </mat-tab>
-    <mat-tab label="Catagory">
-      <div class="tab-content">
-        <app-catagory-event *ngIf="tg.selectedIndex == 1"></app-catagory-event>
-      </div>
-    </mat-tab>
-    <mat-tab label="Calendar">
-      <div class="tab-content">
-        <app-calendar></app-calendar>
-      </div>
-    </mat-tab>
-    <mat-tab label="Today">
-      <div class="tab-content">
-        <app-today-event *ngIf="tg.selectedIndex == 3"></app-today-event>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group class="demo-tab-group" >
+      <mat-tab label="All">
+        <div class="tab-content">
+          <app-all-event></app-all-event>
+        </div>
+      </mat-tab>
+      <mat-tab label="Catagory">
+        <div class="tab-content">
+          <app-catagory-event></app-catagory-event>
+        </div>
+      </mat-tab>
+      <mat-tab label="Calendar">
+        <div class="tab-content">
+          <app-calendar></app-calendar>
+        </div>
+      </mat-tab>
+      <mat-tab label="Today">
+        <div class="tab-content">
+          <app-today-event></app-today-event>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
