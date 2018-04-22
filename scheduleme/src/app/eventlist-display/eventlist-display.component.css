@@ -1,6 +1,8 @@
 .expanel-align .mat-expansion-panel-header-title,
 .expanel-align .mat-expansion-panel-header-description {
     flex-basis: 0;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .expanel-align .mat-expansion-panel-header-description {

@@ -5,4 +5,5 @@ export class Event
     eventDesc: string;
     isDone: boolean;
     category: string;
+    timestamp: string;
 }

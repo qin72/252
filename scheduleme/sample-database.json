@@ -3,22 +3,22 @@
     "zVN2Wgyr2TUgXZBppRcz4ZosjF33" : {
       "events" : [ null, {
         "catagory" : "life",
-        "date" : 987654321,
-        "desc" : "healthy exercise",
-        "done" : false,
-        "name" : "fuck"
+        "eDate" : 987654321,
+        "eventDesc" : "healthy exercise",
+        "isDone" : false,
+        "eventName" : "fuck"
       }, {
         "catagory" : "school",
-        "date" : 888888888,
-        "desc" : "nah",
-        "done" : true,
-        "name" : "horse"
+        "eDate" : 888888888,
+        "eventDesc" : "nah",
+        "isDone" : true,
+        "eventName" : "horse"
       }, {
         "catagory" : "family",
-        "date" : 123123123123123,
-        "desc" : "wqdjkfbklqwjwehqfgnqwjegxfnqwejkgnfqkjwehgfqjhwegfxqwjkehgfxjqwnkehgfxnkjqwegnxfkjqweghxfqnjkhwefgnqwhjgfqknhwjegfqjkwhgfqjkhwegfqkwhejfgklqwefjgbkqweljfgqkwejfgqwjkelfbkqwjefbkqlewbfqkwejfbqkweljbfqklwejbfqwkjefbqklwjefblkqwejbfqlwkejfbqlwekjfbqlwejbf",
-        "done" : true,
-        "name" : "cow"
+        "eDate" : 123123123123123,
+        "eventDesc" : "wqdjkfbklqwjwehqfgnqwjegxfnqwejkgnfqkjwehgfqjhwegfxqwjkehgfxjqwnkehgfxnkjqwegnxfkjqweghxfqnjkhwefgnqwhjgfqknhwjegfqjkwhgfqjkhwegfqkwhejfgklqwefjgbkqweljfgqkwejfgqwjkelfbkqwjefbkqlewbfqkwejfbqkweljbfqklwejbfqwkjefbqklwjefblkqwejbfqlwkejfbqlwekjfbqlwejbf",
+        "isDone" : true,
+        "eventName" : "cow"
       } ]
     }
   }
