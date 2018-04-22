@@ -23,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AllEventComponent } from './all-event/all-event.component';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
 import { CatagoryEventComponent } from './catagory-event/catagory-event.component';
@@ -57,7 +58,8 @@ import { TodayEventComponent } from './today-event/today-event.component';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

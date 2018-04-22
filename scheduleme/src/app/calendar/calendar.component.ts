@@ -29,6 +29,7 @@ export class CalendarComponent implements OnInit {
   clickDay(clickedDate)
   {
       if (clickedDate){
+        alert(clickedDate);
         this.router.navigateByUrl('dayPage');
       }
   }

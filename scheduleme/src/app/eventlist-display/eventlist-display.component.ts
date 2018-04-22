@@ -10,13 +10,13 @@ import { Event } from '../objects/event';
   styleUrls: ['./eventlist-display.component.css']
 })
 export class EventlistDisplayComponent implements OnInit {
-
+  option = {  hour12: false, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
   @Input() events: Array<any>;
   ngOnInit() {
   }
 
     getdate(e) {
-      return new Date(e);
+      return new Date(e).toLocaleDateString('en-US', this.option);
     }
 
 }

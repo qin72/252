@@ -22,7 +22,7 @@ export class TodayEventComponent implements OnInit {
     d.setHours(0,0,0,0);
     d.setDate(d.getDate()+1);
     var end = d.getTime();
-    this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('date').startAt(start).endAt(end)).valueChanges();
+    this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('eDate').startAt(start).endAt(end)).valueChanges();
     this.sortede$ = this.events.map(items=>items.sort((l:any, r:any) => {
       if(l.date < r.date) { return -1; }
       if(l.date > r.date) { return 1; }
