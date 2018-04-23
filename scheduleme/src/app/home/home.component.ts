@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   selectedIndex: number = 0;
   constructor(private eMan : EventManipulationService, public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) {
-    eMan.new_user(authS.getuid());
+    this.eMan = eMan;
   }
 
   ngOnInit() {
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
+    this.eMan.new_user();
   }
 
   logout()

@@ -36,7 +36,9 @@ export class EventlistDisplayComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
   ngAfterViewInit() {
-    document.getElementById('eventdesc').style.overflow = 'scroll';
+    if(document.getElementById('eventdesc') != null) {
+       document.getElementById('eventdesc').style.overflow = 'scroll';
+    }
    }
     getdate(e) {
       if(this.innerWidth < 500) {

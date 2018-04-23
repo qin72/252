@@ -30,6 +30,9 @@ import { EventlistDisplayComponent } from './eventlist-display/eventlist-display
 import { CategoryEventComponent } from './category-event/category-event.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TodayEventComponent } from './today-event/today-event.component';
+import { EventManipulationService } from './services/event-manipulation.service';
+
+import {}
 import {
   MatAutocompleteModule,
   MatButtonToggleModule,
@@ -119,7 +122,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, EventManipulationService],
   bootstrap: [AppComponent],
   exports: [
     MatAutocompleteModule,

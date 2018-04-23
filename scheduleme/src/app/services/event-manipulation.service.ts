@@ -13,29 +13,29 @@ import { Event } from '../objects/event';
 
 @Injectable()
 export class EventManipulationService {
-  uid = null;
+  authS: any;
   db: any;
   constructor(db : AngularFireDatabase, authS : AuthService) {
-    this.uid = authS.getuid();
+    this.authS = authS;
     this.db=db;
   }
   delete(ts) {
-    this.db.object('Users/' + this.uid + '/events/' + ts
+    this.db.object('Users/' + this.authS.getuid() + '/events/' + ts
     ).remove();
   }
   add(event : Event) {
-    this.db.object('Users/' + this.uid + '/events/' + event.timestamp).update(event);
+    this.db.object('Users/' + this.authS.getuid() + '/events/' + event.timestamp).update(event);
   }
   update(event: Event) {
     this.delete(event.timestamp);
     this.add(event);
   }
-  new_user(uid) {
-    const user = this.db.object('Users/' + uid).valueChanges();
+  new_user() {
+    const user = this.db.object('Users/' + this.authS.getuid()).valueChanges();
     user.subscribe(data => {
       if(data==null) {
-        this.db.object('Users/' + uid).update({events: null});
-        alert("New user " + uid  + "created!!");
+        this.db.object('Users/' + this.authS.getuid()).update({events: 0});
+        alert("New user " + this.authS.getuid()  + "created!!");
       }
     });
   }
