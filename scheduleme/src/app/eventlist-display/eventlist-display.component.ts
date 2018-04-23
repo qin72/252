@@ -10,6 +10,8 @@ import { Observable } from 'rxjs/Observable';
 import { EventManipulationService } from '../services/event-manipulation.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MatButtonModule } from '@angular/material';
+import { EventManipulationDialogsComponent } from '../event-manipulation-dialogs/event-manipulation-dialogs.component';
+
 
 
 import { Event } from '../objects/event';
@@ -24,14 +26,16 @@ export class EventlistDisplayComponent implements OnInit {
   db: any;
   authS:any;
   eMan : any;
+  dia: any;
   option = {  hour12: false, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
 
 
   @Input() events: Array<any>;
-  constructor(eMan : EventManipulationService, authS : AuthService, db : AngularFireDatabase) {
+  constructor(eMan : EventManipulationService, authS : AuthService, db : AngularFireDatabase, dia: EventManipulationDialogsComponent) {
     this.eMan = eMan;
     this.authS = authS;
     this.db = db;
+    this.dia = dia;
   }
   ngOnInit() {
     this.innerWidth = window.innerWidth;
@@ -55,6 +59,7 @@ export class EventlistDisplayComponent implements OnInit {
     }
 
     getdesc(t) {
+      if(t==null){return  ""}
       var lines = Math.floor(((this.innerWidth*0.2-0.8)*3+1)/14);
       var line = ".{" + lines + "}" ;
       var re = new RegExp(line,"g");
@@ -68,17 +73,19 @@ export class EventlistDisplayComponent implements OnInit {
     onResize(event) {
       this.innerWidth = window.innerWidth;
     }
-    add_sample() {
-      var e = {};
-      e['eventName'] = "sample";
-      e['eDate'] = new Date().getTime();
-      e['eventDesc'] = "sample";
-      e['isDone'] = true;
-      e['category'] = "life";
-      e['timestamp'] = new Date().getTime();
-      this.eMan.add(e);
+    add() {
+      var e = this.dia.add_dialog();
+      if(e.validate()) {this.eMan.add(e);}
+      else {alert("Invalid submit, no change made!")}
+    }
+    update(oe) {
+      var e = this.dia.update_dialog(oe);
+      if(e.validate()) {this.eMan.update(e);}
+      else {alert("Invalid submit, no change made!")}
     }
     delete(ts) {
-      this.eMan.delete(ts);
+      if(this.dia.remove_dialog()) {
+        this.eMan.delete(ts);
+      }
     }
 }
