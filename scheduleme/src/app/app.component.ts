@@ -10,4 +10,9 @@ import { AuthService} from './services/auth.service';
 export class AppComponent {
   title = 'app';
   constructor(public authS : AuthService, private router : Router) { }
+
+
+
+
+
 }

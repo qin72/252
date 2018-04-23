@@ -1,3 +1,27 @@
-<p>
-  day-page works!
-</p>
+<h1>[DATE]<h1>
+<br>
+<h4><b>Events:</b><h4>
+<h5>School:<h5>
+<br>
+<h5>Extracurriculars:<h5>
+<br>
+<h5>Social Events:<h5>
+<br>
+<h5>Other<h5>
+<br>
+
+<br>
+
+<h4><b>Add Event:</b><h4>
+<h5>Event Category:<h5>
+<form>
+    <input type="radio" name="eventType" value="School" checked> School<br>
+    <input type="radio" name="eventType" value="Extracurriculars"> Extracurriculars<br>
+    <input type="radio" name="eventType" value="Social Events"> Social Events<br>
+    <input type="radio" name="eventType" value="other"> Other
+</form>
+
+<form id="eventType" action="/action_page.php">
+  Event Name: <input type="text" name="enventName"><br>
+  <input type="button" onclick="addEvent()" value="Add Event">
+</form>
