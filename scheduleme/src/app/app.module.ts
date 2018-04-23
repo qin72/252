@@ -32,7 +32,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { TodayEventComponent } from './today-event/today-event.component';
 import { EventManipulationService } from './services/event-manipulation.service';
 
-import {}
 import {
   MatAutocompleteModule,
   MatButtonToggleModule,

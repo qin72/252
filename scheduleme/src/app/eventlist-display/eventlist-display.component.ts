@@ -9,6 +9,7 @@ import { AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { EventManipulationService } from '../services/event-manipulation.service';
 import { Subscription } from 'rxjs/Subscription';
+import { MatButtonModule } from '@angular/material';
 
 
 import { Event } from '../objects/event';

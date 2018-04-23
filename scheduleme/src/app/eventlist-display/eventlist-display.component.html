@@ -33,5 +33,10 @@
       </mat-action-row>
     </mat-accordion>
   </ng-container>
-  <ng-container *ngSwitchCase="true"><h2 style="color: lightgrey">No schedule here yet ^_^</h2></ng-container>
+  <ng-container *ngSwitchCase="true">
+    <h2 style="color: lightgrey">
+      No schedule here yet ^_^
+    </h2><br>
+    <button mat-button color="primary" (click)="add_sample()">Add event</button>
+  </ng-container>
 </p>
