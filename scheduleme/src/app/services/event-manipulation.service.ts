@@ -20,13 +20,11 @@ export class EventManipulationService {
     this.db=db;
   }
   delete(ts) {
-    var item = this.db.list('Users/' + this.uid + '/events', ref =>
-      ref.orderByChild('timestamp').equalTo(ts)
-    );
-    item.remove();
+    this.db.object('Users/' + this.uid + '/events/' + ts
+    ).remove();
   }
   add(event : Event) {
-    this.db.list('Users/' + this.uid + '/events').push(event);
+    this.db.object('Users/' + this.uid + '/events/' + event.timestamp).update(event);
   }
   update(event: Event) {
     this.delete(event.timestamp);

@@ -4,8 +4,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HostListener } from '@angular/core';
+import {AuthService} from '../services/auth.service';
+import { AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 import { EventManipulationService } from '../services/event-manipulation.service';
-
+import { Subscription } from 'rxjs/Subscription';
 
 
 import { Event } from '../objects/event';
@@ -17,13 +20,17 @@ import { Event } from '../objects/event';
 })
 export class EventlistDisplayComponent implements OnInit {
   innerWidth: number;
+  db: any;
+  authS:any;
   eMan : any;
   option = {  hour12: false, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
 
 
   @Input() events: Array<any>;
-  constructor(eMan : EventManipulationService) {
+  constructor(eMan : EventManipulationService, authS : AuthService, db : AngularFireDatabase) {
     this.eMan = eMan;
+    this.authS = authS;
+    this.db = db;
   }
   ngOnInit() {
     this.innerWidth = window.innerWidth;
@@ -48,7 +55,6 @@ export class EventlistDisplayComponent implements OnInit {
       var lines = Math.floor(((this.innerWidth*0.2-0.8)*3+1)/14);
       var line = ".{" + lines + "}" ;
       var re = new RegExp(line,"g");
-      console.log(line);
       return t.replace(re, "$&" + "\r\n");
     }
     getCata(d) {
@@ -68,5 +74,8 @@ export class EventlistDisplayComponent implements OnInit {
       e['category'] = "life";
       e['timestamp'] = new Date().getTime();
       this.eMan.add(e);
+    }
+    delete(ts) {
+      this.eMan.delete(ts);
     }
 }
