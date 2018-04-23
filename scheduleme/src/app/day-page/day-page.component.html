@@ -1,18 +1,31 @@
-<h3>{{dateClicked}}<h3>
+<mat-toolbar color="primary">
+  {{tempDate.toDateString()}}
+</mat-toolbar>
 <br>
-<h4><b>Events:</b><h4>
-<h5>School:<h5>
+<h4>
+<b>Events:</b>
+<h4>
+
+<mat-card>
+  <mat-card-title><font size="5">School:</font></mat-card-title>
+</mat-card>
 <br>
-<h5>Extracurriculars:<h5>
+<mat-card>
+  <mat-card-title><font size="5">Extracurriculars:</font></mat-card-title>
+</mat-card>
 <br>
-<h5>Social Events:<h5>
+<mat-card>
+  <mat-card-title><font size="5">Social Events:</font></mat-card-title>
+</mat-card>
 <br>
-<h5>Other<h5>
+<mat-card>
+  <mat-card-title><font size="5">Other:</font></mat-card-title>
+</mat-card>
 <br>
 
 <br>
 
-<h4><b>Add Event:</b><h4>
+<h4><b>Add Event to Day:</b><h4>
 <h5>Event Category:<h5>
 
 <mat-radio-group class="radio-group" [(ngModel)]="addEventCategory">

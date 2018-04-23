@@ -32,6 +32,7 @@ export class DayPageComponent implements OnInit {
     this.route.queryParams.subscribe(params =>{
       this.dateClicked = params["Date"];
     })
+    this.tempDate = new Date(this.dateClicked);
    }
 
   addEvent(){
