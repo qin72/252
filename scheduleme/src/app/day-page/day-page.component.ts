@@ -12,6 +12,8 @@ export class DayPageComponent implements OnInit {
   addEventCategory: string;
   addEventName: string;
 
+  dateClicked: Date;
+
   categories=[
     'School',
     'Extracurriculars',
@@ -19,7 +21,7 @@ export class DayPageComponent implements OnInit {
     'Other'
   ];
 
-  dateClicked: Date;
+
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params =>{
