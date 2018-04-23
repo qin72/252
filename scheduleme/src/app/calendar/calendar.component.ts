@@ -31,7 +31,7 @@ export class CalendarComponent implements OnInit {
       if (clickedDate){
         let navExt: NavigationExtras={
           queryParams: {
-            "Date": clickedDate.getTime()
+            "Date": this.clickedDate.getTime()
           }
         };
         this.router.navigate(['dayPage'], navExt);
