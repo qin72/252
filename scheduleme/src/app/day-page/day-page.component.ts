@@ -1,7 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-day-page',
   templateUrl: './day-page.component.html',
@@ -9,17 +8,29 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DayPageComponent implements OnInit {
 
+  addEventCategory: string;
+  addEventName: string;
+
+  categories=[
+    'School',
+    'Extracurriculars',
+    'Social Events',
+    'Other'
+  ];
 
   @Input()
   dateClicked: Date;
 
-  constructor() { }
+  constructor() {
+
+   }
 
   addEvent(){
-    console.log(this.dateClicked.getTime());
+
   }
 
   ngOnInit() {
+
   }
 
 }
