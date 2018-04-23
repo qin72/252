@@ -3,19 +3,19 @@
     "Ey87MebhkhcTpzlC85vIzj4qO3y2" : {
       "events" : [ null, {
         "category" : "life",
-        "date" : 987654321,
+        "eDate" : 987654321,
         "eventDesc" : "healthy exercise",
         "isDone" : false,
         "eventName" : "bob"
       }, {
         "category" : "school",
-        "date" : 888888888,
+        "eDate" : 888888888,
         "eventDesc" : "nah",
         "isDone" : true,
         "eventName" : "horse"
       }, {
         "category" : "family",
-        "date" : 123123123123123,
+        "eDate" : 123123123123123,
         "eventDesc" : "wqdjkfbklqwjwehqfgnqwjegxfnqwejkgnfqkjwehgfqjhwegfxqwjkehgfxjqwnkehgfxnkjqwegnxfkjqweghxfqnjkhwefgnqwhjgfqknhwjegfqjkwhgfqjkhwegfqkwhejfgklqwefjgbkqweljfgqkwejfgqwjkelfbkqwjefbkqlewbfqkwejfbqkweljbfqklwejbfqwkjefbqklwjefblkqwejbfqlwkejfbqlwekjfbqlwejbf",
         "isDone" : true,
         "eventName" : "cow"

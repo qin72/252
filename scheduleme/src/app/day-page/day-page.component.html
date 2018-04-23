@@ -8,7 +8,7 @@
       {{e.category}}
     </mat-panel-description>
     <mat-panel-description>
-      {{getdate(e.date)}}
+      {{getdate(e.eDate)}}
     </mat-panel-description>
   </mat-expansion-panel-header>
   <mat-grid-list cols="5" rowHeight="100px">
@@ -22,10 +22,20 @@
   </mat-grid-list>
   <mat-action-row>
     <button mat-button color="warn">Complete</button>
-    <button mat-button color="accent">Edit</button>
-    <button mat-button color="accent">Delete</button>
+    <button mat-button color="accent"  (click)="editEvent(e)">Edit</button>
+    <button mat-button color="accent" (click)='deleteEvent(e)' >Delete</button>
 
   </mat-action-row>
+  <div  *ngIf="renderEdit">
+     
+          <div>
+            
+            
+          </div>
+       
+  <button mat-button color="accent" (click)='renderEdit=false' >Update</button>
+  <button mat-button color="accent" (click)='renderEdit=false' >Cancel</button>
+  </div>
 </mat-expansion-panel>
 
 <h1>{{clickedDate}}<h1>
