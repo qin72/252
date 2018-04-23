@@ -25,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 import { AllEventComponent } from './all-event/all-event.component';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
 import { CategoryEventComponent } from './category-event/category-event.component';

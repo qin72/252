@@ -7,23 +7,32 @@ import 'rxjs/add/operator/switchMap';
 import {NgModule} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import { EventlistDisplayComponent } from '../eventlist-display/eventlist-display.component';
-import {MatSelectModule} from '@angular/material/select';
 import * as firebase from 'firebase';
 import { Event } from '../objects/event';
 
 @Injectable()
 export class EventManipulationService {
+
   authS: any;
   db: any;
-  constructor(db : AngularFireDatabase, authS : AuthService) {
+
+  constructor(
+    db : AngularFireDatabase,
+    authS : AuthService,
+    ) {
     this.authS = authS;
     this.db=db;
   }
+
+
   delete(ts) {
     this.db.object('Users/' + this.authS.getuid() + '/events/' + ts
     ).remove();
   }
   add(event : Event) {
+    if(event.timestamp == null) {
+      event.timestamp = new Date().getTime();
+    }
     this.db.object('Users/' + this.authS.getuid() + '/events/' + event.timestamp).update(event);
   }
   update(event: Event) {
@@ -39,5 +48,4 @@ export class EventManipulationService {
       }
     });
   }
-
 }
