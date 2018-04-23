@@ -35,6 +35,12 @@ export class DayPageComponent implements OnInit {
   addEvent(){
     alert("Event Added");
 
+
+
+
+    this.addEventCategory = null;
+    this.addEventName = null;
+
   }
 
   ngOnInit() {
