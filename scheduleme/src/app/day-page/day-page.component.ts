@@ -1,5 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router"
 
 @Component({
   selector: 'app-day-page',
@@ -11,6 +12,8 @@ export class DayPageComponent implements OnInit {
   addEventCategory: string;
   addEventName: string;
 
+  dateClicked: Date;
+
   categories=[
     'School',
     'Extracurriculars',
@@ -18,11 +21,11 @@ export class DayPageComponent implements OnInit {
     'Other'
   ];
 
-  @Input()
-  dateClicked: Date;
 
-  constructor() {
-
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params =>{
+      this.dateClicked = params["Date"];
+    })
    }
 
   addEvent(){
