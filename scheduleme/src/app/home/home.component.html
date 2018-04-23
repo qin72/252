@@ -16,14 +16,12 @@
     <mat-tab label="All">
       <div class="tab-content">
         <app-all-event *ngIf="tg.selectedIndex == 0" >
-          <mat-progress-spinner [mode]="indeterminate">
-          </mat-progress-spinner>
         </app-all-event>
       </div>
     </mat-tab>
-    <mat-tab label="Catagory">
+    <mat-tab label="category">
       <div class="tab-content">
-        <app-catagory-event *ngIf="tg.selectedIndex == 1"></app-catagory-event>
+        <app-category-event *ngIf="tg.selectedIndex == 1"></app-category-event>
       </div>
     </mat-tab>
     <mat-tab label="Calendar">

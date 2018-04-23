@@ -23,12 +23,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AllEventComponent } from './all-event/all-event.component';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
-import { CatagoryEventComponent } from './catagory-event/catagory-event.component';
+import { CategoryEventComponent } from './category-event/category-event.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TodayEventComponent } from './today-event/today-event.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EventManipulationService } from './services/event-manipulation.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { TodayEventComponent } from './today-event/today-event.component';
     DayPageComponent,
     AllEventComponent,
     EventlistDisplayComponent,
-    CatagoryEventComponent,
+    CategoryEventComponent,
     TodayEventComponent
   ],
   imports: [
@@ -59,9 +60,9 @@ import { TodayEventComponent } from './today-event/today-event.component';
     MatExpansionModule,
     MatGridListModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatDialogModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, EventManipulationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

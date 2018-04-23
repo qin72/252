@@ -2,7 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { HostListener } from '@angular/core'
+import {MatDialogModule} from '@angular/material/dialog';
+import { HostListener } from '@angular/core';
+import { EventManipulationService } from '../services/event-manipulation.service';
+
 
 
 import { Event } from '../objects/event';
@@ -14,8 +17,14 @@ import { Event } from '../objects/event';
 })
 export class EventlistDisplayComponent implements OnInit {
   innerWidth: number;
+  eMan : any;
   option = {  hour12: false, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+
+
   @Input() events: Array<any>;
+  constructor(eMan : EventManipulationService) {
+    this.eMan = eMan;
+  }
   ngOnInit() {
     this.innerWidth = window.innerWidth;
   }
@@ -34,6 +43,7 @@ export class EventlistDisplayComponent implements OnInit {
       }
       return new Date(e).toLocaleDateString('en-US', this.option);
     }
+
     getdesc(t) {
       var lines = Math.floor(((this.innerWidth*0.2-0.8)*3+1)/14);
       var line = ".{" + lines + "}" ;
@@ -48,5 +58,15 @@ export class EventlistDisplayComponent implements OnInit {
     @HostListener('window:resize', ['$event'])
     onResize(event) {
       this.innerWidth = window.innerWidth;
+    }
+    add_sample() {
+      var e = {};
+      e['eventName'] = "sample";
+      e['eDate'] = new Date().getTime();
+      e['eventDesc'] = "sample";
+      e['isDone'] = true;
+      e['category'] = "life";
+      e['timestamp'] = new Date().getTime();
+      this.eMan.add(e);
     }
 }

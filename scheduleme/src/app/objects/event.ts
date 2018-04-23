@@ -1,9 +1,9 @@
 export class Event
 {
     eventName: string;
-    eDate: Date;
+    eDate: number;
     eventDesc: string;
     isDone: boolean;
     category: string;
-    timestamp: string;
+    timestamp: number;
 }

@@ -7,7 +7,7 @@
             {{e.eventName}}
           </mat-panel-title>
           <mat-panel-description *ngIf="innerWidth > 500">
-            {{getCata(e.catagory)}}
+            {{getCata(e.category)}}
           </mat-panel-description>
           <mat-panel-description  mat-option='font-family: monospace'>
             {{getdate(e.eDate)}}
@@ -23,7 +23,7 @@
           </mat-grid-tile>
         </mat-grid-list>
         <mat-action-row>
-          <button mat-button color="warn">Complete</button>
+          <button mat-button color="warn" (click)="add_sample()">Complete</button>
           <button mat-button color="accent">Edit</button>
         </mat-action-row>
       </mat-expansion-panel>

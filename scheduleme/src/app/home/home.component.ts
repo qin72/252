@@ -7,10 +7,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { AllEventComponent } from '../all-event/all-event.component';
-import { CatagoryEventComponent } from '../catagory-event/catagory-event.component';
+import { CategoryEventComponent } from '../category-event/category-event.component';
 import { TodayEventComponent } from '../today-event/today-event.component';
 import { CalendarComponent } from '../calendar/calendar.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { EventManipulationService } from '../services/event-manipulation.service';
 import { NgSwitch } from '@angular/common';
 
 @Component({
@@ -21,7 +22,9 @@ import { NgSwitch } from '@angular/common';
 export class HomeComponent implements OnInit {
 
   selectedIndex: number = 0;
-  constructor(public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) { }
+  constructor(private eMan : EventManipulationService, public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) {
+    eMan.new_user(authS.getuid());
+  }
 
   ngOnInit() {
     if(this.authS.getuid() == 0) {  this.router.navigateByUrl(''); }
