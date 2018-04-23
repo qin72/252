@@ -9,11 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DayPageComponent implements OnInit {
 
+
   @Input()
   dateClicked: Date;
 
   constructor() { }
-
 
   addEvent(){
     console.log(this.dateClicked.getTime());
