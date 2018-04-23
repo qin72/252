@@ -32,5 +32,8 @@ export class CalendarComponent implements OnInit {
         this.router.navigateByUrl('dayPage');
       }
   }
-
+  getDay()
+  {
+    return this.clickedDate;
+  }
 }

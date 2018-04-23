@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDwmjBrtN02bzytb_vkxyB2UkAJkgSroF4",
-    authDomain: "scheduleme-252.firebaseapp.com",
-    databaseURL: "https://scheduleme-252.firebaseio.com",
-    projectId: "scheduleme-252",
-    storageBucket: "scheduleme-252.appspot.com",
-    messagingSenderId: "769413769838"
+    apiKey: "AIzaSyCYsOT7cUC55iQsiVNgRbXVtSMLCicYBKo",
+    authDomain: "scheduleme-382fb.firebaseapp.com",
+    databaseURL: "https://scheduleme-382fb.firebaseio.com",
+    projectId: "scheduleme-382fb",
+    storageBucket: "scheduleme-382fb.appspot.com",
+    messagingSenderId: "328231410055"
   }
 };

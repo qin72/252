@@ -4,10 +4,10 @@
       <mat-expansion-panel [expanded]="false" *ngFor ="let e of events | async">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{e.name}}
+            {{e.eventName}}
           </mat-panel-title>
           <mat-panel-description>
-            {{e.catagory}}
+            {{e.category}}
           </mat-panel-description>
           <mat-panel-description>
             {{getdate(e.date)}}
@@ -15,11 +15,11 @@
         </mat-expansion-panel-header>
         <mat-grid-list cols="5" rowHeight="100px">
           <mat-grid-tile colspan="2" rowspan="1">
-            <div style="position: absolute;left: 0;top:5px">{{e.desc}}</div>
+            <div style="position: absolute;left: 0;top:5px">{{e.eventDesc}}</div>
           </mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">          </mat-grid-tile>
           <mat-grid-tile colspan="2" rowspan="1">
-            <div style="position: absolute;left: 0;top:5px">Complete: {{e.done}}</div>
+            <div style="position: absolute;left: 0;top:5px">Complete: {{e.isDone}}</div>
           </mat-grid-tile>
         </mat-grid-list>
         <mat-action-row>
