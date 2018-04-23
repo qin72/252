@@ -22,7 +22,6 @@ export class DayPageComponent implements OnInit {
   ];
 
 
-
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params =>{
       this.dateClicked = params["Date"];
