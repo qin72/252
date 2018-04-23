@@ -16,7 +16,9 @@ export class AllEventComponent implements OnInit {
   uid = null;
   events: any;
   sortede$: any;
+  authS: any;
   constructor(db : AngularFireDatabase, authS : AuthService) {
+    this.authS = authS;
     this.uid = authS.getuid();
     this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('Date')).valueChanges();
     this.sortede$ = this.events.map(items=>items.sort((l:any, r:any) => {

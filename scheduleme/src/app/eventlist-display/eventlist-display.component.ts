@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HostListener } from '@angular/core'
+
+
 import { Event } from '../objects/event';
 
 @Component({
@@ -10,13 +13,40 @@ import { Event } from '../objects/event';
   styleUrls: ['./eventlist-display.component.css']
 })
 export class EventlistDisplayComponent implements OnInit {
+  innerWidth: number;
   option = {  hour12: false, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
   @Input() events: Array<any>;
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
   }
-
+  ngAfterViewInit() {
+    document.getElementById('eventdesc').style.overflow = 'scroll';
+   }
     getdate(e) {
+      if(this.innerWidth < 500) {
+        var p = new Date(e);
+        var now = new Date();
+        var days = Math.floor((p.getTime() - now.getTime())/(3600000*24));
+        var postfix: string;
+        if(days < 0) { postfix = " days past";}
+        else { postfix = " days left"; }
+        return days + postfix;
+      }
       return new Date(e).toLocaleDateString('en-US', this.option);
     }
-
+    getdesc(t) {
+      var lines = Math.floor(((this.innerWidth*0.2-0.8)*3+1)/14);
+      var line = ".{" + lines + "}" ;
+      var re = new RegExp(line,"g");
+      console.log(line);
+      return t.replace(re, "$&" + "\r\n");
+    }
+    getCata(d) {
+      if(this.innerWidth < 500) { return ""; }
+      return d;
+    }
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+      this.innerWidth = window.innerWidth;
+    }
 }
