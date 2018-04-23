@@ -1,10 +1,9 @@
-<div id='catagory-events'>
+<div id='category-events'>
   <p [ngSwitch]="uid==0">
     <ng-container *ngSwitchCase ="false">
       <mat-form-field>
-        <mat-select placeholder="Choose a catagory" [(value)]="catagory"
+        <mat-select placeholder="Choose a category" [(value)]="category"
                                                     (selectionChange) ='filterBy($event)'>
-          <mat-option value="if i display any schedule, display bug shows..">None</mat-option>
           <mat-option value="life">Life</mat-option>
           <mat-option value="school">School</mat-option>
           <mat-option value="family">Family</mat-option>

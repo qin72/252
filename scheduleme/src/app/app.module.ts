@@ -17,17 +17,47 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarUtilsModule } from './calendarUtils/module';
 import { DayPageComponent } from './day-page/day-page.component'
 
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AllEventComponent } from './all-event/all-event.component';
 import { EventlistDisplayComponent } from './eventlist-display/eventlist-display.component';
-import { CatagoryEventComponent } from './catagory-event/catagory-event.component';
+import { CategoryEventComponent } from './category-event/category-event.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TodayEventComponent } from './today-event/today-event.component';
+import { EventManipulationService } from './services/event-manipulation.service';
+
+
+import {
+  MatAutocompleteModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,7 +68,7 @@ import { TodayEventComponent } from './today-event/today-event.component';
     DayPageComponent,
     AllEventComponent,
     EventlistDisplayComponent,
-    CatagoryEventComponent,
+    CategoryEventComponent,
     TodayEventComponent
   ],
   imports: [
@@ -57,9 +87,76 @@ import { TodayEventComponent } from './today-event/today-event.component';
     MatCardModule,
     MatExpansionModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [AuthService, EventManipulationService],
+  bootstrap: [AppComponent],
+  exports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+
+  ]
 })
 export class AppModule { }

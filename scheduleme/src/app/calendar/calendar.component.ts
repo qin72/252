@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { CalendarEvent } from 'angular-calendar';
 
 
@@ -29,7 +29,12 @@ export class CalendarComponent implements OnInit {
   clickDay(clickedDate)
   {
       if (clickedDate){
-        this.router.navigateByUrl('dayPage');
+        let navExt: NavigationExtras={
+          queryParams: {
+            "Date": this.clickedDate.getTime()
+          }
+        };
+        this.router.navigate(['dayPage'], navExt);
       }
   }
   getDay()

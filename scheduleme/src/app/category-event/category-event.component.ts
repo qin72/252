@@ -11,15 +11,15 @@ import {MatSelectModule} from '@angular/material/select';
 import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-catagory-event',
-  templateUrl: './catagory-event.component.html',
-  styleUrls: ['./catagory-event.component.css']
+  selector: 'app-category-event',
+  templateUrl: './category-event.component.html',
+  styleUrls: ['./category-event.component.css']
 })
-export class CatagoryEventComponent implements OnInit {
+export class CategoryEventComponent implements OnInit {
 
   uid = null;
   sortede$: any;
-  catagory = "fklint"
+  category = "fklint"
   bycalled = 0;
 
   eventlist: Observable<Array<any>>;
@@ -31,7 +31,7 @@ export class CatagoryEventComponent implements OnInit {
     this.event = new BehaviorSubject("null");
     this.eventlist = this.event.switchMap(cata =>
       db.list('Users/' + this.uid + '/events', ref =>
-        cata ? ref.orderByChild('catagory').equalTo(cata) : ref
+        cata ? ref.orderByChild('category').equalTo(cata) : ref
       ).valueChanges()
     );
     this.sortede$ = this.eventlist.map(items=>items.sort((l:any, r:any) => {

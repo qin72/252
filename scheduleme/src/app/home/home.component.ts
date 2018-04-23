@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { AuthService} from '../services/auth.service';
 import { Router } from '@angular/router';
 import { CalendarEvent } from 'angular-calendar';
@@ -7,9 +7,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { AllEventComponent } from '../all-event/all-event.component';
-import { CatagoryEventComponent } from '../catagory-event/catagory-event.component';
+import { CategoryEventComponent } from '../category-event/category-event.component';
 import { TodayEventComponent } from '../today-event/today-event.component';
 import { CalendarComponent } from '../calendar/calendar.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { EventManipulationService } from '../services/event-manipulation.service';
 import { NgSwitch } from '@angular/common';
 
 @Component({
@@ -19,10 +21,18 @@ import { NgSwitch } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authS : AuthService,  private router : Router) { }
+  selectedIndex: number = 0;
+  constructor(private eMan : EventManipulationService, public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) {
+    this.eMan = eMan;
+  }
 
   ngOnInit() {
     if(this.authS.getuid() == 0) {  this.router.navigateByUrl(''); }
+  }
+
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+    this.eMan.new_user();
   }
 
   logout()

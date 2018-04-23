@@ -1,3 +1,4 @@
+
 .expanel-align .mat-expansion-panel-header-title,
 .expanel-align .mat-expansion-panel-header-description {
     flex-basis: 0;
@@ -7,3 +8,6 @@
     justify-content: space-between;
     align-items: center;
 }
+.Error{color: red;}
+.Warning{color: yellow;}
+.Ignored{color: black;}

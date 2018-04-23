@@ -27,3 +27,32 @@
 
   </mat-action-row>
 </mat-expansion-panel>
+
+<h1>{{clickedDate}}<h1>
+<br>
+<h4><b>Events:</b><h4>
+<h5>School:<h5>
+<br>
+<h5>Extracurriculars:<h5>
+<br>
+<h5>Social Events:<h5>
+<br>
+<h5>Other<h5>
+<br>
+
+<br>
+
+<h4><b>Add Event:</b><h4>
+<h5>Event Category:<h5>
+
+<mat-radio-group class="radio-group" [(ngModel)]="addEventCategory">
+  <mat-radio-button class="radio-button" *ngFor="let cat of categories" [value]="cat">
+    {{cat}}<br>
+  </mat-radio-button>
+</mat-radio-group>
+<br>
+<mat-form-field>
+  <input matInput type="text" placeholder="Event Name" [(ngModel)]="addEventName"/>
+</mat-form-field>
+<br>
+<button mat-raised-button color="primary" (click)="addEvent()"> Add Event </button>

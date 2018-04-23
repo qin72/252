@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CalendarComponent } from '../calendar/calendar.component';
 import { Event } from '../objects/event';
 import * as firebase from 'firebase/app';
@@ -16,13 +16,26 @@ export class DayPageComponent implements OnInit {
   cal:CalendarComponent;
   constructor(authS : AuthService) { 
     this.uid=authS.getuid();
+  }
+  addEventCategory: string;
+  addEventName: string;
+
+  categories=[
+    'School',
+    'Extracurriculars',
+    'Social Events',
+    'Other'
+  ];
+
+  @Input()
+  dateClicked: Date;
+
+  addEvent(){
 
   }
- 
+
   ngOnInit() {
 
-    //this.selectedDate=this.cal.;
-    this.getDayEvents();
   }
   getDayEvents()
     { 
@@ -42,7 +55,7 @@ export class DayPageComponent implements OnInit {
         }*/
         
         console.log(childSnapshot.val().eventName);
-          this.eventsForUser.push(new Event(childSnapshot.val().eventName, childSnapshot.val().date, childSnapshot.val().eventDesc, childSnapshot.val().isDone, childSnapshot.val().category));
+          this.eventsForUser.push(new Event(childSnapshot.val().eventName, childSnapshot.val().date, childSnapshot.val().eventDesc, childSnapshot.val().isDone, childSnapshot.val().category,childSnapshot.val().timestamp));
         return false;
       });
     });
