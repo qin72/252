@@ -31,10 +31,11 @@ export class CalendarComponent implements OnInit {
       if (clickedDate){
         let navExt: NavigationExtras={
           queryParams: {
-            "Date": this.clickedDate.getTime()
+            "Date": this.clickedDate
           }
         };
-        this.router.navigate(['dayPage'], navExt);
+        this.router.navigate(["dayPage"], navExt);
+        //this.router.navigateByUrl("dayPage");
       }
   }
 
