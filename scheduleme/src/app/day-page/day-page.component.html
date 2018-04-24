@@ -5,37 +5,31 @@
 <h4>
 <b>Events:</b>
 <h4>
-
-<mat-card>
-  <mat-card-title><font size="5">School:</font></mat-card-title>
-</mat-card>
-<br>
-<mat-card>
-  <mat-card-title><font size="5">Extracurriculars:</font></mat-card-title>
-</mat-card>
-<br>
-<mat-card>
-  <mat-card-title><font size="5">Social Events:</font></mat-card-title>
-</mat-card>
-<br>
-<mat-card>
-  <mat-card-title><font size="5">Other:</font></mat-card-title>
-</mat-card>
-<br>
-
 <br>
 
 <h4><b>Add Event to Day:</b><h4>
-<h5>Event Category:<h5>
 
+<br>
+<mat-form-field>
+  <input matInput type="text" placeholder="Event Name" [(ngModel)]="addEventName"/>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput type="text" placeholder="Event Description" [(ngModel)]="addEventDesc"/>
+</mat-form-field>
+<br>
+<h5>Event Category:<h5>
 <mat-radio-group class="radio-group" [(ngModel)]="addEventCategory">
   <mat-radio-button class="radio-button" *ngFor="let cat of categories" [value]="cat">
     {{cat}}<br>
   </mat-radio-button>
 </mat-radio-group>
-<br>
+<h5>Event Time:<h5>
 <mat-form-field>
-  <input matInput type="text" placeholder="Event Name" [(ngModel)]="addEventName"/>
+  <input matInput type="text" placeholder="Hour" [(ngModel)]="addEventHour"/>
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="text" placeholder="Minutes" [(ngModel)]="addEventMinutes"/>
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary" (click)="addEvent()"> Add Event </button>

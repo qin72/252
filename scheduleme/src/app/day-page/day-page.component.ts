@@ -14,6 +14,10 @@ export class DayPageComponent implements OnInit {
 
   addEventCategory: string;
   addEventName: string;
+  addEventDesc: string;
+
+  addEventHour: number;
+  addEventMinutes: number;
 
   dateClicked: Date;
   tempDate: Date;
@@ -40,16 +44,24 @@ export class DayPageComponent implements OnInit {
 
     this.tempDate = new Date(this.dateClicked);
 
+    this.tempDate.setHours(this.addEventHour);
+    this.tempDate.setMinutes(this.addEventMinutes);
+
     this.newEvent = new Event();
     this.newEvent.eventName = this.addEventName;
     this.newEvent.category = this.addEventCategory;
+    this.newEvent.eventDesc = this.addEventDesc;
     this.newEvent.eDate = this.tempDate.getTime();
+
 
     this.eventDatebase.add(this.newEvent);
 
     this.newEvent = null;
     this.addEventCategory = null;
     this.addEventName = null;
+    this.addEventDesc = null;
+    this.addEventHour = null;
+    this.addEventMinutes = null;
 
   }
 
