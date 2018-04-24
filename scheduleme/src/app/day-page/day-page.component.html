@@ -1,4 +1,12 @@
-<h3>Events</h3>
+
+<mat-toolbar color="primary">
+  {{tempDate.toDateString()}}
+</mat-toolbar>
+<br>
+<h4>
+<b>Events:</b>
+<h4>
+<br>
 <mat-expansion-panel [expanded]="false" *ngFor ="let e of eventsForUser ">
   <mat-expansion-panel-header>
     <mat-panel-title>
@@ -21,7 +29,7 @@
     </mat-grid-tile>
   </mat-grid-list>
   <mat-action-row>
-    <button mat-button color="warn">Complete</button>
+    <button mat-button color="warn" (click)='deleteEvent(e)'>Complete</button>
     <button mat-button color="accent"  (click)="editEvent(e)">Edit</button>
     <button mat-button color="accent" (click)='deleteEvent(e)' >Delete</button>
 
@@ -56,7 +64,7 @@
 
             <div class="form-group">
                 <label> Event Time</label>
-                <input type="datetime" [(ngModel)]="eventEditing.eDate" class="form-control"
+                <input type="datetime" [(ngModel)]="editTime" class="form-control"
                   name="time" #eventForm="ngModel" >
               </div>
 
@@ -81,16 +89,6 @@
   <button mat-raised-button color="accent" (click)='renderEdit=false' >Cancel</button>
   </div>
 </mat-expansion-panel>
-
-<mat-toolbar color="primary">
-  {{tempDate.toDateString()}}
-</mat-toolbar>
-<br>
-<h4>
-<b>Events:</b>
-<h4>
-<br>
-
 <h4><b>Add Event to Day:</b><h4>
 
 <br>
