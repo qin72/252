@@ -18,6 +18,7 @@ export class DayPageComponent implements OnInit {
   eventsForUser: Event[];
   cal:CalendarComponent;
   renderEdit=false;
+  editTime: Date;
   manE;
   eventEditing: Event;
   constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute, private router: Router) {
@@ -111,6 +112,8 @@ export class DayPageComponent implements OnInit {
   {
     console.log(this.eventEditing.eventName);
     console.log(this.eventEditing.eventDesc);
+    let temp : Date = new Date(this.editTime);
+    this.eventEditing.eDate=temp.getTime();
     console.log(this.eventEditing.eDate);
     console.log(this.eventEditing.category);
     console.log(this.eventEditing.timestamp);
@@ -125,6 +128,7 @@ export class DayPageComponent implements OnInit {
   {
     this.renderEdit=true;
     this.eventEditing=e;
+    this.editTime=new Date(this.eventEditing.eDate);
     console.log(this.eventEditing.eDate);
   }
 }
