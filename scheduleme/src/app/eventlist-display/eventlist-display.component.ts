@@ -73,6 +73,9 @@ export class EventlistDisplayComponent implements OnInit {
     onResize(event) {
       this.innerWidth = window.innerWidth;
     }
+    add_sanple() {
+
+    }
     add() {
       var e = this.dia.add_dialog();
       if(e.validate()) {this.eMan.add(e);}

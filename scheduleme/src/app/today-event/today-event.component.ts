@@ -18,8 +18,8 @@ export class TodayEventComponent implements OnInit {
   constructor(db : AngularFireDatabase, authS : AuthService) {
     this.uid = authS.getuid();
     var d = new Date();
-    var start = d.getTime();
     d.setHours(0,0,0,0);
+    var start = d.getTime();
     d.setDate(d.getDate()+1);
     var end = d.getTime();
     this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('eDate').startAt(start).endAt(end)).valueChanges();
