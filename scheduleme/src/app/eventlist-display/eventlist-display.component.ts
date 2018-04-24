@@ -76,19 +76,31 @@ export class EventlistDisplayComponent implements OnInit {
     add_sanple() {
 
     }
+
+
     add() {
-      var e = this.dia.add_dialog();
-      if(e.validate()) {this.eMan.add(e);}
-      else {alert("Invalid submit, no change made!")}
+      this.dia.update_dialog(null).subscribe(res => {
+        if(res.validate()) {this.eMan.add(res);}
+        else { alert('Invalid submit, no change made')}
+      });
     }
+
+
     update(oe) {
-      var e = this.dia.update_dialog(oe);
-      if(e.validate()) {this.eMan.update(e);}
-      else {alert("Invalid submit, no change made!")}
+      this.dia.update_dialog(oe).subscribe(res => {
+        if(res.validate()) {this.eMan.update(res);}
+        else { alert('Invalid submit, no change made')}
+      });
     }
+
+
     delete(ts) {
-      if(this.dia.remove_dialog()) {
-        this.eMan.delete(ts);
-      }
+
+      var r = this.dia.remove_dialog();
+      r.subscribe(res => {
+        console.log(res);
+        if(res) { this.eMan.delete(ts); }
+      });
+
     }
 }

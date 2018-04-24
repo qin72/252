@@ -131,8 +131,7 @@ import {  OneDialog} from './event-manipulation-dialogs/one-dialog.component';
   ],
   providers: [AuthService, EventManipulationService, EventManipulationDialogsComponent
       ],
-  bootstrap: [AppComponent,     AnotherDialog,
-      OneDialog],
+  bootstrap: [AppComponent],
   exports: [
     MatAutocompleteModule,
     MatButtonModule,
@@ -164,8 +163,8 @@ import {  OneDialog} from './event-manipulation-dialogs/one-dialog.component';
     MatStepperModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
-
-  ]
+    MatToolbarModule
+  ],
+  entryComponents: [ AnotherDialog, OneDialog, EventManipulationDialogsComponent ]
 })
 export class AppModule { }

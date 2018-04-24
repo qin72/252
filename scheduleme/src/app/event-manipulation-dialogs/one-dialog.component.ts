@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Event } from '../objects/event';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @Component({
   selector: 'one-dialog',
@@ -8,12 +9,5 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class OneDialog {
 
-  constructor(
-    public dialogRef: MatDialogRef<OneDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 }
