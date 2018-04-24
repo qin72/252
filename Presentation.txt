@@ -1,0 +1,18 @@
+Scheduleme Presentation 
+- Home Page
+	- Login with new user
+	- Add new event
+	- Logout
+	- Log back in with same user to comfirm events save
+- Calendar Page / Today page
+	- Add event for past date, current date and future date
+	- Confirm events show on day page
+	- Show the event for current day on today tab
+	- Complete an event from the day page
+- Category Page / All page
+	- Show the events under each category 
+	- Complete and event from the category page
+	- Show all event on all tab
+- Edit event
+	
+	
