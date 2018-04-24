@@ -11,7 +11,7 @@ import { EventManipulationService } from '../services/event-manipulation.service
 import { Subscription } from 'rxjs/Subscription';
 import { MatButtonModule } from '@angular/material';
 import { EventManipulationDialogsComponent } from '../event-manipulation-dialogs/event-manipulation-dialogs.component';
-
+import { NgClass } from '@angular/common';
 
 
 import { Event } from '../objects/event';
@@ -46,24 +46,41 @@ export class EventlistDisplayComponent implements OnInit {
     }
    }
     getdate(e) {
-      if(this.innerWidth < 500) {
-        var p = new Date(e);
-        var now = new Date();
-        var days = Math.floor((p.getTime() - now.getTime())/(3600000*24));
-        var postfix: string;
-        if(days < 0) { postfix = " days past";}
-        else { postfix = " days left"; }
-        return days + postfix;
-      }
+      if(this.innerWidth < 500) { return this.getDaysLeft(e); }
       return new Date(e).toLocaleDateString('en-US', this.option);
     }
 
+    getDaysLeft(e) {
+      var p = new Date(e);
+      var now = new Date();
+      var days = Math.floor((p.getTime() - now.getTime())/(3600000*24));
+      var postfix: string;
+      if(days < 0) { postfix = " days past";}
+      else { postfix = " days left"; }
+      return days + postfix;
+    }
+    getLeftDaysColor(e) {
+      var p = new Date(e);
+      var now = new Date();
+      var days = Math.floor((p.getTime() - now.getTime())/(3600000*24));
+      if(days > 7) { return 'black';}
+      if(days > 3) { return 'lightblue';}
+      if(days > 0) { return "yellow"}
+      return "red";
+    }
     getdesc(t) {
       if(t==null){return  ""}
-      var lines = Math.floor(((this.innerWidth*0.2-0.8)*3+1)/14);
+      var tt = "Decription:  " + t;
+      var wFactor = this.innerWidth >= 500 ? 3 : 7;
+      var lines = Math.floor(((this.innerWidth*0.2-0.8)*wFactor+1)/14);
       var line = ".{" + lines + "}" ;
       var re = new RegExp(line,"g");
-      return t.replace(re, "$&" + "\r\n");
+      return tt.replace(re, "$&" + "\r\n");
+    }
+    getDescHeightCount(t) {
+      if(t==null) return 0;
+      var wFactor = this.innerWidth >= 500 ? 3 : 7;
+      return 20+20*Math.ceil((t.length + 13)/Math.floor(((this.innerWidth*0.2-0.8)*wFactor+1)/14));
     }
     getCata(d) {
       if(this.innerWidth < 500) { return ""; }
@@ -75,8 +92,9 @@ export class EventlistDisplayComponent implements OnInit {
     }
     add_sample() {
       var t = new Date();
+      var sample_desc = "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
       t.setHours(t.getHours()+2);
-      this.eMan.add(new Event('Sample', t.getTime(), 'only for test', true, "School", new Date().getTime()));
+      this.eMan.add(new Event('Sample', t.getTime(), sample_desc, true, "School", new Date().getTime()));
     }
 
     update(oe) {

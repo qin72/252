@@ -15,13 +15,13 @@
             {{getdate(e.eDate)}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-grid-list cols="5" rowHeight="100px">
-          <mat-grid-tile colspan="2" rowspan="1" flex="100" layout-wrap #ohmy>
-            <pre id="eventdesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100px; width:calc(100% + 15px)">{{getdesc(e.eventDesc)}}</pre>
+        <mat-grid-list cols="5" [rowHeight]="getDescHeightCount(e.eventDesc)">
+          <mat-grid-tile [colspan]="innerWidth > 500 ? 2:5" rowspan="1" flex="100" layout-wrap #ohmy>
+            <pre id="eventDesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100%; width:calc(100% + 15px)">{{getdesc(e.eventDesc)}}</pre>
           </mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <div style="position: absolute;left: 0;top:5px">Complete: {{e.isDone}}</div>
+          <mat-grid-tile colspan="1" rowspan="1" *ngIf="this.innerWidth >= 500">          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="1" *ngIf="this.innerWidth >= 500">
+            <div style="position: absolute;left: 0;top:5px"> {{getDaysLeft(e.eDate)}}</div>
           </mat-grid-tile>
         </mat-grid-list>
         <mat-action-row>

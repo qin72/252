@@ -3,7 +3,8 @@ import { Event } from '../objects/event';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-	import { NgModel } from '@angular/forms';
+import { NgModel } from '@angular/forms';
+
 
 @Component({
   selector: 'one-dialog',
