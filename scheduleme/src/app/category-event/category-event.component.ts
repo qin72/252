@@ -35,8 +35,8 @@ export class CategoryEventComponent implements OnInit {
       ).valueChanges()
     );
     this.sortede$ = this.eventlist.map(items=>items.sort((l:any, r:any) => {
-      if(l.date < r.date) { return -1; }
-      if(l.date > r.date) { return 1; }
+      if(l.date < r.eDate) { return -1; }
+      if(l.date > r.eDate) { return 1; }
       return 0;
     }));
   }

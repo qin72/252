@@ -24,8 +24,8 @@ export class TodayEventComponent implements OnInit {
     var end = d.getTime();
     this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('eDate').startAt(start).endAt(end)).valueChanges();
     this.sortede$ = this.events.map(items=>items.sort((l:any, r:any) => {
-      if(l.date < r.date) { return -1; }
-      if(l.date > r.date) { return 1; }
+      if(l.date < r.eDate) { return -1; }
+      if(l.date > r.eDate) { return 1; }
       return 0;
     }));
   }
