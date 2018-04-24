@@ -69,10 +69,9 @@ export class EventlistDisplayComponent implements OnInit {
     var p = new Date(e);
     var now = new Date();
     var days = Math.floor((p.getTime() - now.getTime())/(3600000*24));
-    var postfix: string;
-    if(days < 0) { postfix = " days past";days = days * -1;}
-    else { postfix = " days left"; }
-    return days + postfix;
+    if(p.toDateString() == now.toDateString()) { return "due today"; }
+    if(days < 0) { days = days * -1; return days + " days past";}
+    else { return days + " days left"; }
   }
 
 
@@ -118,15 +117,18 @@ export class EventlistDisplayComponent implements OnInit {
 
 
   add_sample() {
+    var heros = [  "Aatrox",  "Ahri",  "Akali",  "Alistar",  "Amumu",  "Anivia",  "Annie",  "Ashe",  "Azir",  "Bard",  "Blitzcrank",  "Brand",  "Caitlyn",  "Cassiopeia",  "Cho'Gath",  "Corki",  "Darius",  "Diana",  "Draven" ,  "Dr. Mundo",  "Ekko",  "Elise",  "Evelynn",  "Ezreal",  "Fiddlesticks",  "Fiora",  "Fizz",  "Galio",  "Gangplank",  "Garen",  "Gragas",  "Graves",  "Hecarim",  "Heimerdinger",  "Irelia",  "Janna",  "Jarvan IV",  "Jax",  "Jayce",  "Jinx",  "Kalista",  "Karma",  "Karthus",  "Kassadin",  "Katarina",  "Kayle",  "Kennen",  "Kha'Zix",  "Kog'Maw",  "LeBlanc",  "Lee Sin",  "Leona",  "Lissandra",  "Lucian",  "Lulu",  "Lux",  "Malphite",  "Malzahar",  "Maokai",  "Master Yi",  "Miss Fortune",  "Wukong",  "Mordekaiser",  "Morgana",  "Nami",  "Nasus",  "Nautilus",  "Nidalee",  "Nocturne",  "Nunu",  "Olaf",  "Orianna",  "Pantheon",  "Poppy",  "Quinn",  "Rammus",  "Rek’Sai",  "Renekton",  "Rengar",  "Riven",  "Rumble",  "Ryze",  "Sejuani",  "Shaco",  "Shen",  "Shyvana",  "Singed",  "Sion",  "Sivir",  "Skarner",  "Sona",  "Soraka",  "Swain",  "Syndra",  "Tahm Kench",  "Talon",  "Taric",  "Teemo",  "Thresh",  "Tristana",  "Trundle",  "Tryndamere",  "Twisted Fate",  "Twitch",  "Udyr",  "Urgot",  "Varus",  "Vayne",  "Veigar",  "Vi",  "Viktor",  "Vladimir",  "Volibear",  "Warwick",  "Xerath",  "Xin Zhao",  "Yasuo",  "Yorick",  "Zac",  "Zed",  "Ziggs",  "Zilean",  "Zyra"];
+    var actions = ["'s birthday!", " need help", " need gank", " gtg"];
     var cata;
     var rand1 = Math.floor(Math.random() * 4);
     var rand2 = Math.floor(Math.random() * 60);
     var rand3 = Math.floor(Math.random() * 2000)-1000;
+    var rand4 = Math.floor(Math.random() * heros.length);
     var catas = ['School', 'Extracurriculars', 'Social Events', 'Other']
     var t = new Date();
     var sample_desc = "12345678900";
     t.setHours(t.getHours()+rand3, rand2);
-    this.eMan.add(new Event('Sample', t.getTime(), sample_desc.repeat(rand2), true, catas[rand1], new Date().getTime()));
+    this.eMan.add(new Event(heros[rand4] + actions[rand1], t.getTime(), sample_desc.repeat(rand2), true, catas[rand1], new Date().getTime()));
   }
 
 

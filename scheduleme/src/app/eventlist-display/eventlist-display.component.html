@@ -4,7 +4,7 @@
   <ng-container *ngSwitchCase ="false">
     <mat-accordion class="expanel-align">
       <mat-expansion-panel *ngFor ="let e of events | async">
-        <mat-expansion-panel-header>
+        <mat-expansion-panel-header flex="100">
           <mat-panel-title>
             {{e.eventName}}
           </mat-panel-title>
