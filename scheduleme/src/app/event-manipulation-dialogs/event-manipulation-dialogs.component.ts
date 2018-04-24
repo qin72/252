@@ -22,26 +22,9 @@ export class EventManipulationDialogsComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-=======
-  /*
-  add_dialog() {
-    var res;
-    let dialogRef = this.dialog.open(OneDialog, {
-      width: '350px',
-      data: { event: new Event() }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      res = result;
-    });
-    return res;
-  }
-*/
->>>>>>> 45242fb828278d4bd203dec26d93d0bc61f18915
 
   update_dialog(e) {
+
     var res;
     if(e != null){
       res = new Event();
