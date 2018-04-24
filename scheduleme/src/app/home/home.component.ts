@@ -20,7 +20,7 @@ import { NgSwitch } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  sound:boolean = false;
   selectedIndex: number = 0;
   constructor(private eMan : EventManipulationService, public authS : AuthService,  private router : Router, private cdr: ChangeDetectorRef) {
     this.eMan = eMan;
@@ -33,6 +33,12 @@ export class HomeComponent implements OnInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
     this.eMan.new_user();
+  }
+
+  play() {
+    let audioPlayer: HTMLMediaElement = <HTMLMediaElement>document.getElementById('sound');
+    if(!this.sound) {     audioPlayer.play(); this.sound = true;}
+    else {audioPlayer.pause(); this.sound = false;}
   }
 
   logout()

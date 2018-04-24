@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
-  Scheduleme
+              <button mat-raised-button color="primary" (click)="play()">Scheduleme</button>
+              <audio src="../../assets/rain.mp3" id="sound">
+                Nah
+              </audio>
+
   <span class="fill-line-space"></span>
   <div  [ngSwitch]="authS.loggedIn()">
     <ng-container *ngSwitchCase ="true">
