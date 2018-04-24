@@ -22,8 +22,8 @@ export class AllEventComponent implements OnInit {
     this.uid = authS.getuid();
     this.events = db.list('Users/' + this.uid + '/events', ref => ref.orderByChild('Date')).valueChanges();
     this.sortede$ = this.events.map(items=>items.sort((l:any, r:any) => {
-      if(l.date < r.eDate) { return -1; }
-      if(l.date > r.eDate) { return 1; }
+      if(l.eDate < r.eDate) { return -1; }
+      if(l.eDate > r.eDate) { return 1; }
       return 0;
     }));
   }
