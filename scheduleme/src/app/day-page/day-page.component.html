@@ -27,18 +27,62 @@
 
   </mat-action-row>
   <div  *ngIf="renderEdit">
-     
-          <div>
-            
-            
-          </div>
+
+              
+          <form #eventForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+       <!--
+            <div class="form-group">
+              <label> Event Name</label>
+              <input
+              type="text"
+              [(ngModel)]="eventEditing.eventName"
+              [ngClass]="{'is-invalid':petName.errors && petName.touched}"
+              class="form-control"
+              name="name"
+              #eventForm="ngModel"
+              >
+             -->
+             <div class="form-group">
+                <label> Event Name</label>
+                <input type="text" [(ngModel)]="eventEditing.eventName" class="form-control"
+                  name="name" #eventForm="ngModel" >
+              </div>
+
+            <div class="form-group">
+              <label> Description</label>
+              <input type="text" [(ngModel)]="eventEditing.eventDesc" class="form-control"
+                name="desc" #eventForm="ngModel" >
+            </div>
+
+            <div class="form-group">
+                <label> Event Time</label>
+                <input type="datetime-local" [(ngModel)]="eventEditing.eDate" class="form-control"
+                  name="time" #eventForm="ngModel" >
+              </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select
+                [(ngModel)]="eventEditing.category"
+                class="form-control"
+                name="category"
+                #eventForm="ngModel"
+                >
+                  <option value="school">School</option>
+                  <option value="extra">Extra</option>
+                  <option value="social">Social Event</option>
+                  <option value="life">Life</option>
+                </select>
+              </div>
+          </form>
+        
        
-  <button mat-button color="accent" (click)='renderEdit=false' >Update</button>
-  <button mat-button color="accent" (click)='renderEdit=false' >Cancel</button>
+  <button mat-raised-button color="accent" (click)='updateEvent()' >Update</button>
+  <button mat-raised-button color="accent" (click)='renderEdit=false' >Cancel</button>
   </div>
 </mat-expansion-panel>
 
-<h1>{{clickedDate}}<h1>
+<h3>{{dateClicked}}<h3>
 <br>
 <h4><b>Events:</b><h4>
 <h5>School:<h5>

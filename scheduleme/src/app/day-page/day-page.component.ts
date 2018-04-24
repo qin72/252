@@ -4,6 +4,7 @@ import { Event } from '../objects/event';
 import * as firebase from 'firebase/app';
 import {AuthService} from '../services/auth.service';
 import { EventManipulationService } from '../services/event-manipulation.service';
+import { ActivatedRoute } from "@angular/router"
 
 @Component({
   selector: 'app-day-page',
@@ -18,9 +19,12 @@ export class DayPageComponent implements OnInit {
   renderEdit=false;
   manE;
   eventEditing: Event;
-  constructor(authS : AuthService,manEvent: EventManipulationService) { 
+  constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute) { 
     this.uid=authS.getuid();
     this.manE=manEvent;
+    this.route.queryParams.subscribe(params =>{
+      this.dateClicked = params["Date"];
+    })
   }
   addEventCategory: string;
   addEventName: string;
@@ -32,7 +36,6 @@ export class DayPageComponent implements OnInit {
     'Other'
   ];
 
-  @Input()
   dateClicked: Date;
 
   addEvent(){
@@ -50,7 +53,7 @@ export class DayPageComponent implements OnInit {
 
   getDayEvents()
     { 
-      this.selectedDate= new Date(1524499387067);
+      this.selectedDate= new Date(this.dateClicked);
       //this.uid='Ey87MebhkhcTpzlC85vIzj4qO3y2';
       //console.log(this.uid);
       var dateofEvent: Date;
@@ -80,7 +83,12 @@ export class DayPageComponent implements OnInit {
 
   updateEvent()
   {
-    
+    console.log(this.eventEditing.eventName);
+    console.log(this.eventEditing.eventDesc);
+    console.log(this.eventEditing.eDate);
+    console.log(this.eventEditing.category);
+    console.log(this.eventEditing.timestamp);
+    this.renderEdit=false;
   }
   
   getdate(e) {
