@@ -20,7 +20,7 @@ export class EventManipulationDialogsComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  /*
   add_dialog() {
     var res;
     let dialogRef = this.dialog.open(OneDialog, {
@@ -34,7 +34,7 @@ export class EventManipulationDialogsComponent implements OnInit {
     });
     return res;
   }
-
+*/
 
   update_dialog(e) {
     var res;

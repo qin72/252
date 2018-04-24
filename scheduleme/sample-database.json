@@ -1,20 +1,20 @@
 {
   "Users" : {
-    "zVN2Wgyr2TUgXZBppRcz4ZosjF33" : {
+    "Ey87MebhkhcTpzlC85vIzj4qO3y2" : {
       "events" : [ null, {
-        "catagory" : "life",
+        "category" : "life",
         "eDate" : 987654321,
         "eventDesc" : "healthy exercise",
         "isDone" : false,
-        "eventName" : "fuck"
+        "eventName" : "bob"
       }, {
-        "catagory" : "school",
+        "category" : "school",
         "eDate" : 888888888,
         "eventDesc" : "nah",
         "isDone" : true,
         "eventName" : "horse"
       }, {
-        "catagory" : "family",
+        "category" : "family",
         "eDate" : 123123123123123,
         "eventDesc" : "wqdjkfbklqwjwehqfgnqwjegxfnqwejkgnfqkjwehgfqjhwegfxqwjkehgfxjqwnkehgfxnkjqwegnxfkjqweghxfqnjkhwefgnqwhjgfqknhwjegfqjkwhgfqjkhwegfqkwhejfgklqwefjgbkqweljfgqkwejfgqwjkelfbkqwjefbkqlewbfqkwejfbqkweljbfqklwejbfqwkjefbqklwjefblkqwejbfqlwkejfbqlwekjfbqlwejbf",
         "isDone" : true,

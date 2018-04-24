@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit {
 
       this.router.navigateByUrl('home');
       console.log(res.user.email);
+      console.log(res.user.uid);
       this.user=res.user.email;
     });
 
