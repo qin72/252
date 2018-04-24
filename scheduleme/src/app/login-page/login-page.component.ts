@@ -10,6 +10,7 @@ import {Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   user:any;
+  count: number = 0;
   constructor(public authS : AuthService, private router : Router) { }
 
   ngOnInit() {
@@ -22,6 +23,22 @@ export class LoginPageComponent implements OnInit {
 
     });
 
+  }
+
+
+  go() {
+
+    if (document.getElementById("fullpage").className=="night") {
+      document.getElementById("fullpage").className=="";
+      document.getElementById("switch").className=="";
+    }
+    else {
+      document.getElementById("fullpage").className="night";
+        document.getElementById("switch").className="switched";
+    }
+    if(this.count >= 3) {
+      this.login();
+    } else { this.count++;}
   }
 
 }
