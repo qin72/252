@@ -38,7 +38,9 @@
   <ng-container *ngSwitchCase="true">
     <h2 style="color: lightgrey">
       No schedule here yet ^_^
-    </h2><br>
-    <button mat-raised-button color="primary" (click)="add_sample()">Add sample event</button>
+    </h2><br>      <mat-action-row>
+            <button mat-raised-button color="primary" (click)="update(null)">Add New Event</button>
+          </mat-action-row>
+    <button mat-raised-button color="accent" (click)="add_sample()">Add sample event</button>
   </ng-container>
 </p>

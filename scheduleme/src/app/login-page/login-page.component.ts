@@ -19,9 +19,7 @@ export class LoginPageComponent implements OnInit {
     this.authS.loginGoogle().then( (res) =>{
 
       this.router.navigateByUrl('home');
-      console.log(res.user.email);
-      console.log(res.user.uid);
-      this.user=res.user.email;
+
     });
 
   }
