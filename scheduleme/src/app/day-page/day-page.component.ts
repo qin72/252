@@ -2,7 +2,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { Event } from '../objects/event';
-import { Location } from '@angular/common';
 import { EventManipulationService } from '../services/event-manipulation.service';
 
 @Component({
