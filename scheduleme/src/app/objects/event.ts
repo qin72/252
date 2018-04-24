@@ -1,12 +1,12 @@
 export class Event
 {
     eventName: string;
-    eDate: Date;
+    eDate: number;
     eventDesc: string;
     isDone: boolean;
     category: string;
     timestamp: number;
-    public constructor( eventName: string, eDate : Date, eventDesc: string, isDone: boolean, category: string, timestamp: number )
+    public constructor( eventName: string, eDate : number, eventDesc: string, isDone: boolean, category: string, timestamp: number )
     {
         this.eventName=eventName;
         this.eDate=eDate;
@@ -15,6 +15,7 @@ export class Event
         this.category=category;
         this.timestamp=timestamp;
     }
+
     validate() {
       if
       (

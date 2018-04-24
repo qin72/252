@@ -17,7 +17,7 @@
         </mat-expansion-panel-header>
         <mat-grid-list cols="5" rowHeight="100px">
           <mat-grid-tile colspan="2" rowspan="1" flex="100" layout-wrap #ohmy>
-            <pre id="eventdesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100px; width:calc(100% + 15px)">{{getdesc(e.eventDesc)}}</pre>
+            <pre id="eventdesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100px; width:calc(100% + 15px)">Description: {{getdesc(e.eventDesc)}}</pre>
           </mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">          </mat-grid-tile>
           <mat-grid-tile colspan="2" rowspan="1">
@@ -33,11 +33,12 @@
         <button mat-button color="primary" (click)="add()">Add</button>
       </mat-action-row>
     </mat-accordion>
+    <button mat-button color="primary" (click)="add_sample()">Add sample event</button>
   </ng-container>
   <ng-container *ngSwitchCase="true">
     <h2 style="color: lightgrey">
       No schedule here yet ^_^
     </h2><br>
-    <button mat-button color="primary" (click)="add_sample()">Add event</button>
+    <button mat-button color="primary" (click)="add_sample()">Add sample event</button>
   </ng-container>
 </p>

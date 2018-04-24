@@ -4,9 +4,11 @@
       <mat-form-field>
         <mat-select placeholder="Choose a category" [(value)]="category"
                                                     (selectionChange) ='filterBy($event)'>
-          <mat-option value="life">Life</mat-option>
-          <mat-option value="school">School</mat-option>
-          <mat-option value="family">Family</mat-option>
+          <mat-option value="School">School</mat-option>
+          <mat-option value="Extracurricules">Extracurricules</mat-option>
+          <mat-option value="Social Events">Social Events</mat-option>
+          <mat-option value="Others">Others</mat-option>
+
         </mat-select>
       </mat-form-field>
       <app-eventlist-display [events]='sortede$'>

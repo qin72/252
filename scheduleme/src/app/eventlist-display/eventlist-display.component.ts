@@ -73,8 +73,10 @@ export class EventlistDisplayComponent implements OnInit {
     onResize(event) {
       this.innerWidth = window.innerWidth;
     }
-    add_sanple() {
-
+    add_sample() {
+      var t = new Date();
+      t.setHours(t.getHours()+2);
+      this.eMan.add(new Event('Sample', t.getTime(), 'only for test', true, "School", new Date().getTime()));
     }
 
 
@@ -88,7 +90,7 @@ export class EventlistDisplayComponent implements OnInit {
 
     update(oe) {
       this.dia.update_dialog(oe).subscribe(res => {
-        if(res.validate()) {this.eMan.update(res);}
+        if(res.validate()) {this.eMan.add(res);}
         else { alert('Invalid submit, no change made')}
       });
     }

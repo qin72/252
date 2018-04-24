@@ -27,14 +27,9 @@ export class EventManipulationDialogsComponent implements OnInit {
 
     var res;
     if(e != null){
-      res = new Event();
-      res.eDate = e.eDate;
-      res.eventDesc = e.eventDesc;
-      res.timestamp = e.timestamp;
-      res.category = e.category;
-      res.eventName = e.eventName;
+      res = new Event(e.eventName,e.eDate,e.eventDesc, false, e.category, e.timestamp);
     } else {
-      res = new Event();
+      res = new Event(null, null, null, null, null, null);
     }
     let dialogRef = this.dialog.open(OneDialog, {
       width: '350px',

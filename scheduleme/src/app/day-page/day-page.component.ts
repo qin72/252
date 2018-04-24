@@ -20,7 +20,7 @@ export class DayPageComponent implements OnInit {
   renderEdit=false;
   manE;
   eventEditing: Event;
-  constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute, private router: Router) { 
+  constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute, private router: Router) {
     this.uid=authS.getuid();
     this.manE=manEvent;
     this.route.queryParams.subscribe(params =>{
@@ -56,7 +56,7 @@ export class DayPageComponent implements OnInit {
     this.tempDate.setHours(this.addEventHour);
     this.tempDate.setMinutes(this.addEventMinutes);
     let dt= new Date(this.tempDate);
-    this.newEvent = new Event(this.addEventName, this.tempDate,this.addEventDesc,false,this.addEventCategory,new Date().getTime());
+    this.newEvent = new Event(this.addEventName, this.tempDate.getTime(),this.addEventDesc,false,this.addEventCategory,new Date().getTime());
     this.manE.add(this.newEvent);
 
     this.newEvent = null;
@@ -78,7 +78,7 @@ export class DayPageComponent implements OnInit {
   }
 
   getDayEvents()
-    { 
+    {
       this.selectedDate= new Date(this.dateClicked);
       //this.uid='Ey87MebhkhcTpzlC85vIzj4qO3y2';
       //console.log(this.uid);
@@ -87,13 +87,13 @@ export class DayPageComponent implements OnInit {
       this.eventsForUser = [];
       snapshot.forEach(childSnapshot => {
        dateofEvent=new Date(childSnapshot.val().eDate);
-        if(this.selectedDate.toDateString() == dateofEvent.toDateString())  
+        if(this.selectedDate.toDateString() == dateofEvent.toDateString())
         {
           console.log(childSnapshot.val().eventName);
           this.eventsForUser.push(new Event(childSnapshot.val().eventName, childSnapshot.val().eDate, childSnapshot.val().eventDesc, childSnapshot.val().isDone, childSnapshot.val().category,childSnapshot.val().timestamp));
         }
         /*
-        console.log(childSnapshot.val().eventName); 
+        console.log(childSnapshot.val().eventName);
           this.eventsForUser.push(new Event(childSnapshot.val().eventName, childSnapshot.val().eDate, childSnapshot.val().eventDesc, childSnapshot.val().isDone, childSnapshot.val().category,childSnapshot.val().timestamp));
         */return false;
       });
@@ -101,10 +101,10 @@ export class DayPageComponent implements OnInit {
     if(this.eventsForUser!=undefined)
     {
       this.eventsForUser.sort(function(a,b) {
-        return (new Date(a.eDate).getTime() - new Date(b.eDate).getTime());
+        return (a.eDate - b.eDate);
     });
     }
-   
+
   }
 
   updateEvent()
@@ -117,7 +117,7 @@ export class DayPageComponent implements OnInit {
     this.manE.update(this.eventEditing);
     this.renderEdit=false;
   }
-  
+
   getdate(e) {
     return new Date(e);
   }
