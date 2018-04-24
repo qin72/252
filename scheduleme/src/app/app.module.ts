@@ -58,6 +58,9 @@ import {
   MatStepperModule,
   MatTableModule,
 } from '@angular/material';
+import {     EventManipulationDialogsComponent     } from './event-manipulation-dialogs/event-manipulation-dialogs.component';
+import {  AnotherDialog } from './event-manipulation-dialogs/another-dialog.component';
+import {  OneDialog} from './event-manipulation-dialogs/one-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,11 @@ import {
     AllEventComponent,
     EventlistDisplayComponent,
     CategoryEventComponent,
-    TodayEventComponent
+    TodayEventComponent,
+    EventManipulationDialogsComponent,
+    AnotherDialog,
+    OneDialog
+
   ],
   imports: [
     BrowserModule,
@@ -122,8 +129,10 @@ import {
     MatTabsModule,
     MatToolbarModule,
   ],
-  providers: [AuthService, EventManipulationService],
-  bootstrap: [AppComponent],
+  providers: [AuthService, EventManipulationService, EventManipulationDialogsComponent
+      ],
+  bootstrap: [AppComponent,     AnotherDialog,
+      OneDialog],
   exports: [
     MatAutocompleteModule,
     MatButtonModule,

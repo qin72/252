@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 <label> Event Time</label>
-                <input type="datetime-local" [(ngModel)]="eventEditing.eDate" class="form-control"
+                <input type="datetime" [(ngModel)]="eventEditing.eDate" class="form-control"
                   name="time" #eventForm="ngModel" >
               </div>
 
@@ -68,10 +68,10 @@
                 name="category"
                 #eventForm="ngModel"
                 >
-                  <option value="school">School</option>
-                  <option value="extra">Extra</option>
-                  <option value="social">Social Event</option>
-                  <option value="life">Life</option>
+                  <option value="School">School</option>
+                  <option value="Extracurriculars">Extracurriculars</option>
+                  <option value="Social Events">Social Event</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
           </form>
@@ -82,31 +82,38 @@
   </div>
 </mat-expansion-panel>
 
-<h3>{{dateClicked}}<h3>
+<mat-toolbar color="primary">
+  {{tempDate.toDateString()}}
+</mat-toolbar>
 <br>
-<h4><b>Events:</b><h4>
-<h5>School:<h5>
-<br>
-<h5>Extracurriculars:<h5>
-<br>
-<h5>Social Events:<h5>
-<br>
-<h5>Other<h5>
+<h4>
+<b>Events:</b>
+<h4>
 <br>
 
-<br>
+<h4><b>Add Event to Day:</b><h4>
 
-<h4><b>Add Event:</b><h4>
+<br>
+<mat-form-field>
+  <input matInput type="text" placeholder="Event Name" [(ngModel)]="addEventName"/>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput type="text" placeholder="Event Description" [(ngModel)]="addEventDesc"/>
+</mat-form-field>
+<br>
 <h5>Event Category:<h5>
-
 <mat-radio-group class="radio-group" [(ngModel)]="addEventCategory">
   <mat-radio-button class="radio-button" *ngFor="let cat of categories" [value]="cat">
     {{cat}}<br>
   </mat-radio-button>
 </mat-radio-group>
-<br>
+<h5>Event Time:<h5>
 <mat-form-field>
-  <input matInput type="text" placeholder="Event Name" [(ngModel)]="addEventName"/>
+  <input matInput type="text" placeholder="Hour" [(ngModel)]="addEventHour"/>
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="text" placeholder="Minutes" [(ngModel)]="addEventMinutes"/>
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary" (click)="addEvent()"> Add Event </button>

@@ -1,3 +1,4 @@
+<app-event-manipulation-dialogs></app-event-manipulation-dialogs>
 <p [ngSwitch]="(events | async)?.length==0">
 
   <ng-container *ngSwitchCase ="false">
@@ -25,13 +26,18 @@
         </mat-grid-list>
         <mat-action-row>
           <button mat-button color="warn" (click)="delete(e.timestamp)">Complete</button>
-          <button mat-button color="accent">Edit</button>
+          <button mat-button color="accent" (click)="update(e)">Edit</button>
         </mat-action-row>
       </mat-expansion-panel>
       <mat-action-row>
-        <button mat-button color="warn" (click)="add_sample()">Add</button>
+        <button mat-button color="primary" (click)="add()">Add</button>
       </mat-action-row>
     </mat-accordion>
   </ng-container>
-  <ng-container *ngSwitchCase="true"><h2 style="color: lightgrey">No schedule here yet ^_^</h2></ng-container>
+  <ng-container *ngSwitchCase="true">
+    <h2 style="color: lightgrey">
+      No schedule here yet ^_^
+    </h2><br>
+    <button mat-button color="primary" (click)="add_sample()">Add event</button>
+  </ng-container>
 </p>

@@ -15,4 +15,13 @@ export class Event
         this.category=category;
         this.timestamp=timestamp;
     }
+    validate() {
+      if
+      (
+        this.eventName == null ||
+        this.eDate == null ||
+        this.category == null
+      ) { return false; }
+      return true;
+    }
 }

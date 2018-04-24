@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Set Event</h1>
+<div mat-dialog-content>
+  <form class="example-form">
+    <mat-form-field>
+      <input matInput placeholder="Event name" value="{{data.event.eventName}}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-input-container>
+        <input matInput
+               [matDatepicker]="picker"
+               [(ngModel)]="data.event.eDate"
+               placeholder="Choose due date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      </mat-input-container>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Event Description"
+        value="{{data.event.eventDesc}}">
+      </textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="data.event.category"
+        placeholder="Event Category">
+        <mat-option>--</mat-option>
+        <mat-option value="school">School</mat-option>
+        <mat-option value="social">Social</mat-option>
+        <mat-option value="life">Life</mat-option>
+        <mat-option value="other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.event" cdkFocusInitial>Submit</button>
+</div>

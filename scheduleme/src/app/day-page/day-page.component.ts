@@ -4,7 +4,8 @@ import { Event } from '../objects/event';
 import * as firebase from 'firebase/app';
 import {AuthService} from '../services/auth.service';
 import { EventManipulationService } from '../services/event-manipulation.service';
-import { ActivatedRoute } from "@angular/router"
+import { Router, ActivatedRoute } from "@angular/router"
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-day-page',
@@ -19,15 +20,25 @@ export class DayPageComponent implements OnInit {
   renderEdit=false;
   manE;
   eventEditing: Event;
-  constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute) { 
+  constructor(authS : AuthService,manEvent: EventManipulationService, private route: ActivatedRoute, private router: Router) { 
     this.uid=authS.getuid();
     this.manE=manEvent;
     this.route.queryParams.subscribe(params =>{
       this.dateClicked = params["Date"];
     })
+    this.tempDate = new Date(this.dateClicked);
   }
   addEventCategory: string;
   addEventName: string;
+  addEventDesc: string;
+
+  addEventHour: number;
+  addEventMinutes: number;
+
+  dateClicked: Date;
+  tempDate: Date;
+
+  newEvent: Event;
 
   categories=[
     'School',
@@ -36,10 +47,25 @@ export class DayPageComponent implements OnInit {
     'Other'
   ];
 
-  dateClicked: Date;
 
   addEvent(){
+    alert("Event Added");
 
+    this.tempDate = new Date(this.dateClicked);
+
+    this.tempDate.setHours(this.addEventHour);
+    this.tempDate.setMinutes(this.addEventMinutes);
+    let dt= new Date(this.tempDate);
+    this.newEvent = new Event(this.addEventName, this.tempDate,this.addEventDesc,false,this.addEventCategory,new Date().getTime());
+    this.manE.add(this.newEvent);
+
+    this.newEvent = null;
+    this.addEventCategory = null;
+    this.addEventName = null;
+    this.addEventDesc = null;
+    this.addEventHour = null;
+    this.addEventMinutes = null;
+    this.getDayEvents();
   }
 
   ngOnInit() {
@@ -88,6 +114,7 @@ export class DayPageComponent implements OnInit {
     console.log(this.eventEditing.eDate);
     console.log(this.eventEditing.category);
     console.log(this.eventEditing.timestamp);
+    this.manE.update(this.eventEditing);
     this.renderEdit=false;
   }
   
@@ -98,5 +125,6 @@ export class DayPageComponent implements OnInit {
   {
     this.renderEdit=true;
     this.eventEditing=e;
+    console.log(this.eventEditing.eDate);
   }
 }
