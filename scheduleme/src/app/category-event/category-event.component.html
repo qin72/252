@@ -2,8 +2,8 @@
   <p [ngSwitch]="uid==0">
     <ng-container *ngSwitchCase ="false">
       <mat-form-field>
-        <mat-select placeholder="Choose a category" [(value)]="category"
-                                                    (selectionChange) ='filterBy($event)'>
+        <mat-select placeholder="Choose a category" [(value)]="category" (selectionChange) ='filterBy($event)'>
+          <mat-option>--</mat-option>
           <mat-option value="School">School</mat-option>
           <mat-option value="Extracurricules">Extracurricules</mat-option>
           <mat-option value="Social Events">Social Events</mat-option>

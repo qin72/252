@@ -1,23 +1,23 @@
-<h1 mat-dialog-title>Set Event</h1>
+<h1 mat-dialog-title>Setting Event</h1>
 <div mat-dialog-content>
-  <form class="example-form">
+  <div>{{updateTime()}}</div>
+  <form class="form">
     <mat-form-field>
-      <input matInput placeholder="Event name" value="{{data.event.eventName}}">
+      <input matInput placeholder="Event name" [(ngModel)]="data.event.eventName"  [ngModelOptions]="{standalone: true}">
     </mat-form-field>
-
     <mat-form-field>
-      <mat-input-container>
-        <input matInput
-               [matDatepicker]="picker"
-               [(ngModel)]="data.event.eDate"
-               placeholder="Choose due date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      </mat-input-container>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date"  [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-margin">
+      <input matInput placeholder="Pick a time" type="time" [(ngModel)]="time" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
 
     <mat-form-field>
       <textarea matInput placeholder="Event Description"
-        value="{{data.event.eventDesc}}">
+        [(ngModel)]="data.event.eventDesc" [ngModelOptions]="{standalone: true}"
+        >
       </textarea>
     </mat-form-field>
 
@@ -25,15 +25,15 @@
       <mat-select [(value)]="data.event.category"
         placeholder="Event Category">
         <mat-option>--</mat-option>
-        <mat-option value="school">School</mat-option>
-        <mat-option value="social">Social</mat-option>
-        <mat-option value="life">Life</mat-option>
-        <mat-option value="other">Other</mat-option>
+        <mat-option value="School">School</mat-option>
+        <mat-option value="Extracurricules">Extracurricules</mat-option>
+        <mat-option value="Social Events">Social Events</mat-option>
+        <mat-option value="Others">Others</mat-option>
       </mat-select>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button [mat-dialog-close]>Cancel</button>
-  <button mat-button [mat-dialog-close]="data.event" cdkFocusInitial>Submit</button>
+  <button mat-raised-button [mat-dialog-close]="data.event" cdkFocusInitial>Submit</button>
 </div>

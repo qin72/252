@@ -17,7 +17,7 @@
         </mat-expansion-panel-header>
         <mat-grid-list cols="5" rowHeight="100px">
           <mat-grid-tile colspan="2" rowspan="1" flex="100" layout-wrap #ohmy>
-            <pre id="eventdesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100px; width:calc(100% + 15px)">Description: {{getdesc(e.eventDesc)}}</pre>
+            <pre id="eventdesc" style="position: absolute;left: 0;top:5px; overflow-y: scroll; height:100px; width:calc(100% + 15px)">{{getdesc(e.eventDesc)}}</pre>
           </mat-grid-tile>
           <mat-grid-tile colspan="1" rowspan="1">          </mat-grid-tile>
           <mat-grid-tile colspan="2" rowspan="1">
@@ -26,19 +26,19 @@
         </mat-grid-list>
         <mat-action-row>
           <button mat-button color="warn" (click)="delete(e.timestamp)">Complete</button>
-          <button mat-button color="accent" (click)="update(e)">Edit</button>
+          <button mat-button color="primary" (click)="update(e)">Edit</button>
         </mat-action-row>
       </mat-expansion-panel>
       <mat-action-row>
-        <button mat-button color="primary" (click)="add()">Add</button>
+        <button mat-raised-button color="primary" (click)="update(null)">Add New Event</button>
       </mat-action-row>
     </mat-accordion>
-    <button mat-button color="primary" (click)="add_sample()">Add sample event</button>
+    <button mat-raised-button color="accent" (click)="add_sample()">Add sample event</button>
   </ng-container>
   <ng-container *ngSwitchCase="true">
     <h2 style="color: lightgrey">
       No schedule here yet ^_^
     </h2><br>
-    <button mat-button color="primary" (click)="add_sample()">Add sample event</button>
+    <button mat-raised-button color="primary" (click)="add_sample()">Add sample event</button>
   </ng-container>
 </p>

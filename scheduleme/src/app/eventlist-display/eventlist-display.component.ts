@@ -79,19 +79,14 @@ export class EventlistDisplayComponent implements OnInit {
       this.eMan.add(new Event('Sample', t.getTime(), 'only for test', true, "School", new Date().getTime()));
     }
 
-
-    add() {
-      this.dia.update_dialog(null).subscribe(res => {
-        if(res.validate()) {this.eMan.add(res);}
-        else { alert('Invalid submit, no change made')}
-      });
-    }
-
-
     update(oe) {
+      if(oe == null){ oe = new Event(null, null, null, null, null,null)}
       this.dia.update_dialog(oe).subscribe(res => {
-        if(res.validate()) {this.eMan.add(res);}
-        else { alert('Invalid submit, no change made')}
+        if(res.eventDesc == null) { res.eventDesc = " ";}
+        console.log("Name: " + res.eventName + ", Date: " + res.eDate + ", category: " + res.category);
+        if(res != undefined && res.eventName != null && res.eDate != null && res.category != null) {alert("Added");this.eMan.add(res);}
+        else {
+          alert('Invalid submit, no change made!')}
       });
     }
 
